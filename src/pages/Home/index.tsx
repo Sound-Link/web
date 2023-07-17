@@ -1,5 +1,5 @@
 import { useRouter } from "../../hooks/useRouter";
-import { isApp } from "../../utils/isApp";
+import { Button } from "@chakra-ui/react";
 
 const Home = () => {
   const { push } = useRouter();
@@ -16,6 +16,7 @@ const Home = () => {
       >
         test로
       </button>
+      <Button>차크라 ui 버튼</Button>
     </div>
   );
 };

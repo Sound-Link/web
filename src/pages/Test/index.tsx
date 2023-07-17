@@ -1,4 +1,5 @@
 import { useRouter } from "../../hooks/useRouter";
+import { Input } from "@chakra-ui/react";
 
 const Test = () => {
   const { back } = useRouter();
@@ -7,6 +8,7 @@ const Test = () => {
     <div style={{ position: "relative", top: "400px" }}>
       Test
       <button onClick={() => back()}>home으로</button>
+      <Input placeholder="sound lint" />
     </div>
   );
 };
