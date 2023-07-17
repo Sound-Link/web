@@ -1,7 +1,7 @@
-import { useRouter } from "../../hooks/useRouter";
 import { Button } from "@chakra-ui/react";
-import Test from "./Test";
 import { Suspense } from "react";
+import { useRouter } from "../../hooks/useRouter";
+import Test from "./Test";
 
 const Home = () => {
   const { push } = useRouter();

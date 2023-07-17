@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { NavigateOptions, useNavigate } from "react-router-dom";
 import { isApp } from "../utils/isApp";
 
 const sendRouterEvent = (path: string): void => {
   window.ReactNativeWebView.postMessage(
-    JSON.stringify({ type: "ROUTER_EVENT", data: path })
+    JSON.stringify({ type: "ROUTER_EVENT", data: path }),
   );
 };
 
@@ -19,16 +19,19 @@ export const useRouter = () => {
     nav(-1);
   };
 
-  const push = ({ url, params }: { url: string; params?: any }) => {
+  const push = ({
+    url,
+    options,
+  }: {
+    url: string;
+    options?: NavigateOptions;
+  }) => {
     if (isApp()) {
       sendRouterEvent(url);
 
       return;
     }
-    nav({
-      pathname: url,
-      search: params,
-    });
+    nav(url, options);
   };
 
   return {

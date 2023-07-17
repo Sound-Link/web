@@ -1,8 +1,12 @@
 import { Box } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 
-const testApi = async (): Promise<any> =>
-  new Promise((resolve) => {
+const testApi = async (): Promise<{
+  data: {
+    test: string;
+  };
+}> =>
+  new Promise(resolve => {
     setTimeout(() => {
       resolve({
         data: {
@@ -15,7 +19,7 @@ const testApi = async (): Promise<any> =>
 const Test = () => {
   const { data } = useQuery(["test"], testApi);
 
-  return <Box>{data.data.test}</Box>;
+  return <Box>{data?.data.test}</Box>;
 };
 
 export default Test;

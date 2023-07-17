@@ -1,5 +1,5 @@
-import { useRouter } from "../../hooks/useRouter";
 import { Input } from "@chakra-ui/react";
+import { useRouter } from "../../hooks/useRouter";
 
 const Test = () => {
   const { back } = useRouter();

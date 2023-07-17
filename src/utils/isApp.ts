@@ -1,9 +1,9 @@
 export const isApp = () => {
-  let isApp = false;
+  let _isApp = false;
 
   if (window.ReactNativeWebView) {
-    isApp = true;
+    _isApp = true;
   }
 
-  return isApp;
+  return _isApp;
 };
