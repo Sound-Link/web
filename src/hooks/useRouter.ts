@@ -1,9 +1,9 @@
 import { NavigateOptions, useNavigate } from "react-router-dom";
 import { isApp } from "../utils/isApp";
 
-const sendRouterEvent = (path: string): void => {
+const sendRouterEvent = (type: string): void => {
   window.ReactNativeWebView.postMessage(
-    JSON.stringify({ type: "ROUTER_EVENT", data: path }),
+    JSON.stringify({ type: "ROUTER_EVENT", data: type }),
   );
 };
 
@@ -13,8 +13,6 @@ export const useRouter = () => {
   const back = () => {
     if (isApp()) {
       sendRouterEvent("back");
-
-      return;
     }
     nav(-1);
   };
@@ -27,9 +25,7 @@ export const useRouter = () => {
     options?: NavigateOptions;
   }) => {
     if (isApp()) {
-      sendRouterEvent(url);
-
-      return;
+      sendRouterEvent("push");
     }
     nav(url, options);
   };

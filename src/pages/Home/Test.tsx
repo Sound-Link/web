@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
+import { useLocation } from "react-router-dom";
 
 const testApi = async (): Promise<{
   data: {
@@ -17,6 +18,8 @@ const testApi = async (): Promise<{
   });
 
 const Test = () => {
+  const test = useLocation();
+  console.log(test);
   const { data } = useQuery(["test"], testApi);
 
   return <Box>{data?.data.test}</Box>;
