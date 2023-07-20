@@ -1,4 +1,3 @@
-import { createGlobalStyle } from "styled-components";
 import JamsilThinOtf from "./The_Jamsil_OTF/The_Jamsil_OTF_Thin.otf"
 import JamsilLightOtf from "./The_Jamsil_OTF/The_Jamsil_OTF_Light.otf"
 import JamsilRegularOtf from "./The_Jamsil_OTF/The_Jamsil_OTF_Regular.otf"
@@ -11,39 +10,43 @@ import JamsilRegularTtf from "./The_Jamsil_TTF/The_Jamsil_Regular.ttf"
 import JamsilMediumTtf from "./The_Jamsil_TTF/The_Jamsil_Medium.ttf"
 import JamsilBoldTtf from "./The_Jamsil_TTF/The_Jamsil_Bold.ttf"
 import JamsilExtraBoldTtf from "./The_Jamsil_TTF/The_Jamsil_ExtraBold.ttf"
+import { Global } from '@emotion/react'
 
-const Fonts = createGlobalStyle`
-    @font-face{
-        font-family:'JamsilThin';
-        src:url(${JamsilThinOtf}) format('embedded-opentype'),
+const Fonts = () => (
+    <Global styles={`
+        @font-face{
+            font-family:'JamsilThin';
+            src:url(${JamsilThinOtf}) format('embedded-opentype'),
             url(${JamsilThinTtf}) format('truetype'),
-    }
-    @font-face{
-        font-family:'JamsilThin';
-        src:url(${JamsilLightOtf}) format('embedded-opentype'),
+        }
+        @font-face{
+            font-family:'JamsilThin';
+            src:url(${JamsilLightOtf}) format('embedded-opentype'),
             url(${JamsilLightTtf}) format('truetype'),
-    }
-    @font-face{
-        font-family:'JamsilThin';
-        src:url(${JamsilRegularOtf}) format('embedded-opentype'),
+        }
+        @font-face{
+            font-family:'JamsilThin';
+            src:url(${JamsilRegularOtf}) format('embedded-opentype'),
             url(${JamsilRegularTtf}) format('truetype'),
-    }
-    @font-face{
-        font-family:'JamsilThin';
-        src:url(${JamsilMediumOtf}) format('embedded-opentype'),
+        }
+        @font-face{
+            font-family:'JamsilThin';
+            src:url(${JamsilMediumOtf}) format('embedded-opentype'),
             url(${JamsilMediumTtf}) format('truetype'),
-    }
-    @font-face{
-        font-family:'JamsilThin';
-        src:url(${JamsilBoldOtf}) format('embedded-opentype'),
+        }
+        @font-face{
+            font-family:'JamsilThin';
+            src:url(${JamsilBoldOtf}) format('embedded-opentype'),
             url(${JamsilBoldTtf}) format('truetype'),
-    }
-    @font-face{
-        font-family:'JamsilThin';
-        src:url(${JamsilExtraBoldOtf}) format('embedded-opentype'),
+        }
+        @font-face{
+            font-family:'JamsilThin';
+            src:url(${JamsilExtraBoldOtf}) format('embedded-opentype'),
             url(${JamsilExtraBoldTtf}) format('truetype'),
-    }
-`;
-
- export default Fonts;
-   
+        }
+        `}
+    />
+)
+    
+export default Fonts;
+    
