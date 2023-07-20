@@ -1,23 +1,21 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { QueryClientProvider } from "@tanstack/react-query";
-import Home from "./pages/Home";
-import Test from "./pages/Test";
 import { queryClient } from "./queryClient";
+import RouteGroup from "./routes";
+import Div100vh from "react-div-100vh";
+import theme from "./assets/theme";
 
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <ChakraProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/test" element={<Test />} />
-          </Routes>
-        </BrowserRouter>
+      <ChakraProvider theme={theme}>
+        <Div100vh>
+          <RouteGroup />
+        </Div100vh>
       </ChakraProvider>
     </QueryClientProvider>
   );
 };
 
 export default App;
+ 

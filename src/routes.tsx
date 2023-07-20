@@ -6,19 +6,23 @@ import SignUp from "./pages/SignUp";
 import Meeting from "./pages/Meeting";
 import Friends from "./pages/Friends";
 import Enroll from "./pages/Enroll";
+import { Suspense } from "react";
+import Loader from "./pages/Loader";
 
 const RouteGroup = () => {
   return (
     <BrowserRouter>
+      <Suspense fallback={<Loader />}>
         <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/test" element={<Test />} />
-        <Route path="/enroll" element={<Enroll />} />
-        <Route path="/friends" element={<Friends />} />
-        <Route path="/meeting" element={<Meeting />} />
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/signUp" element={<SignUp />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/enroll" element={<Enroll />} />
+          <Route path="/friends" element={<Friends />} />
+          <Route path="/meeting" element={<Meeting />} />
+          <Route path="/signIn" element={<SignIn />} />
+          <Route path="/signUp" element={<SignUp />} />
         </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 };
