@@ -6,8 +6,6 @@ import SignUp from "./pages/SignUp";
 import Meeting from "./pages/Meeting";
 import Friends from "./pages/Friends";
 import Enroll from "./pages/Enroll";
-import { Suspense } from "react";
-import Loader from "./pages/Loader";
 
 const RouteGroup = () => {
   return (
