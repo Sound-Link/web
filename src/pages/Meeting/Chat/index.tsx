@@ -1,14 +1,11 @@
 import { Button, Center, Stack } from "@chakra-ui/react";
-import { useRouter } from "../../hooks/useRouter";
 
-const Meeting = () => {
-  const { push } = useRouter();
-
+const MeetingChat = () => {
   return (
     <Stack>
       <Center>Meeting</Center>
       <Center>
-        <Button
+        {/* <Button
           onClick={() =>
             push({
               url: "/meeting/chat",
@@ -17,7 +14,7 @@ const Meeting = () => {
           background="gradient.button"
         >
           Chatting Room
-        </Button>
+        </Button> */}
       </Center>
       {/* <Suspense fallback={<div>Loading...</div>}>
         <Test />
@@ -26,4 +23,4 @@ const Meeting = () => {
   );
 };
 
-export default Meeting;
+export default MeetingChat;

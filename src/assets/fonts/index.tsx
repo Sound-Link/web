@@ -18,32 +18,32 @@ const Fonts = () => (
         @font-face{
             font-family:'JamsilThin';
             src:url(${JamsilThinOtf}) format('embedded-opentype'),
-            url(${JamsilThinTtf}) format('truetype'),
+                url(${JamsilThinTtf}) format('truetype'),
         }
         @font-face{
-            font-family:'JamsilThin';
+            font-family:'JamsilLight';
             src:url(${JamsilLightOtf}) format('embedded-opentype'),
-            url(${JamsilLightTtf}) format('truetype'),
+                url(${JamsilLightTtf}) format('truetype'),
         }
         @font-face{
-            font-family:'JamsilThin';
+            font-family:'JamsilRegular';
             src:url(${JamsilRegularOtf}) format('embedded-opentype'),
-            url(${JamsilRegularTtf}) format('truetype'),
+                url(${JamsilRegularTtf}) format('truetype'),
         }
         @font-face{
-            font-family:'JamsilThin';
+            font-family:'JamsilMedium';
             src:url(${JamsilMediumOtf}) format('embedded-opentype'),
-            url(${JamsilMediumTtf}) format('truetype'),
+                url(${JamsilMediumTtf}) format('truetype'),
         }
         @font-face{
-            font-family:'JamsilThin';
+            font-family:'JamsilBold';
             src:url(${JamsilBoldOtf}) format('embedded-opentype'),
-            url(${JamsilBoldTtf}) format('truetype'),
+                url(${JamsilBoldTtf}) format('truetype'),
         }
         @font-face{
-            font-family:'JamsilThin';
+            font-family:'JamsilExtraBold';
             src:url(${JamsilExtraBoldOtf}) format('embedded-opentype'),
-            url(${JamsilExtraBoldTtf}) format('truetype'),
+                url(${JamsilExtraBoldTtf}) format('truetype'),
         }
         `}
   />
