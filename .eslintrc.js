@@ -34,9 +34,17 @@ module.exports = {
     "import/prefer-default-export": "off",
     "import/extensions": "off",
     "react/button-has-type": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn"],
     "react/function-component-definition": [
       2,
       { namedComponents: "arrow-function" },
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
     ],
     "react/jsx-filename-extension": [2, { extensions: [".ts", ".tsx"] }],
   },
