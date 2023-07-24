@@ -30,6 +30,7 @@ module.exports = {
     "no-underscore-dangle": "off",
     "import/no-unresolved": "off",
     "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "off",
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "import/extensions": "off",

@@ -7,3 +7,23 @@ export const isApp = () => {
 
   return _isApp;
 };
+
+export const isIos = () => {
+  let _isIos = false;
+
+  if (window.navigator.userAgent.match(/(iPad|iPhone|iPod)/i)) {
+    _isIos = true;
+  }
+
+  return _isIos;
+};
+
+export const isAndroid = () => {
+  let _isAndroid = false;
+
+  if (window.navigator.userAgent.match(/Android/i)) {
+    _isAndroid = true;
+  }
+
+  return _isAndroid;
+};
