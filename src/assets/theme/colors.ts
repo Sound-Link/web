@@ -5,9 +5,19 @@ const colors = {
   },
   bgColor: {
     gray: "#414142",
+    // 로그인 페이지 배경  배경 색
+    gray2: "#EEEEEF",
+    // 로그인 페이지 버튼 색
+    gray3: "#323232",
   },
   fontColor: {
     gray: "#C1BEBE",
+    gray2: "#EEEEEF",
+    gray3: "#323232",
+  },
+  color: {
+    gray3: "#323232",
+    gray4: "#909090",
   },
 };
 

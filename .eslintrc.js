@@ -28,6 +28,7 @@ module.exports = {
   rules: {
     "import/export": "off",
     "no-underscore-dangle": "off",
+    "react/jsx-props-no-spreading": "off",
     "import/no-unresolved": "off",
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "off",
@@ -35,7 +36,6 @@ module.exports = {
     "import/prefer-default-export": "off",
     "import/extensions": "off",
     "react/button-has-type": "off",
-    "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["warn"],
     "react/function-component-definition": [
       2,

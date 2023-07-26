@@ -5,6 +5,7 @@ import friendIcon from "./friend-icon.png";
 import homeIcon from "./home-icon.png";
 import profileIcon from "./profile-icon.png";
 import voiceIcon from "./voice-icon.png";
+import signInIcon from "./가입 로고.png";
 
 const Images = {
   chatIcon,
@@ -14,6 +15,7 @@ const Images = {
   homeIcon,
   profileIcon,
   voiceIcon,
+  signInIcon,
 };
 
 export default Images;
