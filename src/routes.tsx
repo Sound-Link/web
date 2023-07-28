@@ -9,6 +9,7 @@ import Enroll from "./pages/Enroll";
 import EnrollStep from "./pages/Enroll/Steps/index";
 import PrivateLayout from "./pages/Layout/private-layout";
 import MeetingChat from "./pages/Meeting/Chat";
+import { SendSMS } from "./pages/SignUp/SendSMS";
 
 const RouteGroup = () => {
   return (
@@ -24,6 +25,7 @@ const RouteGroup = () => {
           <Route path="/meeting/chat" element={<MeetingChat />} />
         </Route>
         <Route path="/signIn" element={<SignIn />} />
+        <Route path="/signUp/sendSMS/:phoneNumber" element={<SendSMS />} />
         <Route path="/signUp" element={<SignUp />} />
       </Routes>
     </BrowserRouter>
