@@ -18,6 +18,7 @@ const colors = {
   color: {
     gray3: "#323232",
     gray4: "#909090",
+    gray5: "#707070",
   },
 };
 

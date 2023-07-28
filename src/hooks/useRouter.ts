@@ -1,4 +1,9 @@
-import { NavigateOptions, useLocation, useNavigate } from "react-router-dom";
+import {
+  NavigateOptions,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { isApp } from "../utils/isApp";
 
 const objectToQueryString = (params: object) => {
@@ -34,6 +39,7 @@ const sendRouterEvent = (type: string): void => {
 export const useRouter = () => {
   const nav = useNavigate();
   const { search } = useLocation();
+  const queryStrings = useParams();
 
   const back = () => {
     if (isApp()) {
@@ -58,11 +64,14 @@ export const useRouter = () => {
     nav(`${url}${paramsString}`, options);
   };
 
-  const query = queryStringToObject(search);
+  const getQuery = () => {
+    if (!search) return { ...queryStrings };
+    return { ...queryStrings, ...queryStringToObject(search) };
+  };
 
   return {
     back,
     push,
-    query,
+    query: getQuery(),
   };
 };

@@ -9,7 +9,7 @@ const theme = extendTheme({
         "font-size": "62.5%",
       },
       "*": {
-        "box-sizing": "content-box",
+        "box-sizing": "border-box",
       },
     },
   },
