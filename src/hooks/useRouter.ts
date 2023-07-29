@@ -1,5 +1,34 @@
-import { NavigateOptions, useNavigate } from "react-router-dom";
+import {
+  NavigateOptions,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { isApp } from "../utils/isApp";
+
+const objectToQueryString = (params: object) => {
+  const queryStrings: string[] = [];
+
+  Object.keys(params).forEach(key => {
+    const value = encodeURIComponent(params[key as keyof typeof params]);
+    queryStrings.push(`${key}=${value}`);
+  });
+
+  return `?${queryStrings.join("&")}`;
+};
+
+function queryStringToObject(queryString: string) {
+  const params = {} as { [key: string]: string };
+  const pairs = queryString.substring(1).split("&");
+
+  Object.keys(pairs).forEach(key => {
+    const pair = pairs[key as keyof typeof pairs];
+    const [keyName, value] = String(pair).split("=");
+    params[keyName] = value;
+  });
+
+  return params;
+}
 
 const sendRouterEvent = (type: string): void => {
   window.ReactNativeWebView.postMessage(
@@ -9,6 +38,8 @@ const sendRouterEvent = (type: string): void => {
 
 export const useRouter = () => {
   const nav = useNavigate();
+  const { search } = useLocation();
+  const queryStrings = useParams();
 
   const back = () => {
     if (isApp()) {
@@ -20,18 +51,27 @@ export const useRouter = () => {
   const push = ({
     url,
     options,
+    params,
   }: {
     url: string;
     options?: NavigateOptions;
+    params?: object;
   }) => {
+    const paramsString = params ? objectToQueryString(params) : "";
     if (isApp()) {
       sendRouterEvent("push");
     }
-    nav(url, options);
+    nav(`${url}${paramsString}`, options);
+  };
+
+  const getQuery = () => {
+    if (!search) return { ...queryStrings };
+    return { ...queryStrings, ...queryStringToObject(search) };
   };
 
   return {
     back,
     push,
+    query: getQuery(),
   };
 };

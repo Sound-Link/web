@@ -3,7 +3,6 @@ import { useRouter } from "../../hooks/useRouter";
 
 const Meeting = () => {
   const { push } = useRouter();
-  //   const test = useLocation();
 
   return (
     <Stack>

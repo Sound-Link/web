@@ -10,6 +10,9 @@ import EnrollStep from "./pages/Enroll/Steps/index";
 import PrivateLayout from "./pages/Layout/private-layout";
 import MeetingChat from "./pages/Meeting/Chat";
 import EnrollLayout from "./pages/Layout/enroll-layout";
+import { SendSMS } from "./pages/SignUp/SendSMS";
+import { VerifyPage } from "./pages/SignUp/Verify";
+import { CompletePage } from "./pages/SignUp/Verify/Complete";
 
 const RouteGroup = () => {
   return (
@@ -28,6 +31,9 @@ const RouteGroup = () => {
         <Route path="/meeting/chat" element={<MeetingChat />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
+        <Route path="/signUp/sendSMS/:phoneNumber" element={<SendSMS />} />
+        <Route path="/signUp/verify" element={<VerifyPage />} />
+        <Route path="/signUp/verify/complete" element={<CompletePage />} />
       </Routes>
     </BrowserRouter>
   );
