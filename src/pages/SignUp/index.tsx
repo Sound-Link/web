@@ -4,10 +4,11 @@ import { useRouter } from "../../hooks/useRouter";
 import { InputWithClear } from "../../components/common/InputWithClear";
 import { CheckBox } from "./CheckBox";
 import { OkButton } from "../../components/common/OkButton";
-import Images from "../../assets/images/Icon";
 import { TopImageLayout } from "../Layout/TopImageLayout";
+import { useAuth } from "../../hooks/useAuth";
 
 const SignUp = () => {
+  useAuth();
   const { push } = useRouter();
   const [formState, setFormState] = useState({
     phoneNumber: "",

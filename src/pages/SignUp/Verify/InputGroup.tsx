@@ -1,5 +1,11 @@
 import { Flex, Box } from "@chakra-ui/react";
-import { ChangeEvent, Dispatch, SetStateAction, useRef } from "react";
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+} from "react";
 
 interface InputGroupProps {
   verifyValue: string;
@@ -17,6 +23,10 @@ export const InputGroup = ({
     setVerifyValue(value);
   };
 
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   return (
     <Flex
       gap="0.4rem"
@@ -30,6 +40,7 @@ export const InputGroup = ({
         ref={inputRef}
         value={verifyValue}
         onChange={handleChange}
+        type="tel"
       />
       {[0, 1, 2, 3].map(arr => {
         return (

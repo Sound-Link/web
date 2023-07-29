@@ -1,11 +1,13 @@
 import React from "react";
-import { Box, Center, Flex, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Stack, Text } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import Images from "../../assets/images/Icon";
 import { useRouter } from "../../hooks/useRouter";
+import { useAuth } from "../../hooks/useAuth";
 
 const PrivateLayout = () => {
   const { push } = useRouter();
+  useAuth();
 
   return (
     <Stack width="100%" height="100%" bgColor="bgColor.gray">

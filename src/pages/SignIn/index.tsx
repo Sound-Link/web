@@ -3,6 +3,7 @@ import Images from "../../assets/images/Icon";
 import { Button } from "./Button";
 import { useRouter } from "../../hooks/useRouter";
 import { TopImageLayout } from "../Layout/TopImageLayout";
+import { useAuth } from "../../hooks/useAuth";
 
 const FlexColumnJustifyAlignCenter = (props: FlexProps) => (
   <Flex {...props} direction="column" align="center" justify="center" />
@@ -10,6 +11,7 @@ const FlexColumnJustifyAlignCenter = (props: FlexProps) => (
 
 const SignIn = () => {
   const { push } = useRouter();
+  useAuth();
 
   return (
     <TopImageLayout>
@@ -30,22 +32,13 @@ const SignIn = () => {
             onClick={() =>
               push({
                 url: "/signUp",
-                params: {
-                  a: 1,
-                  b: 2,
-                },
               })
             }
             role="link"
-            aria-label="회원가입하러 가기"
+            aria-label="시작하기"
           >
             <Text fontSize="1.5rem" fontFamily="JamsilMedium">
-              sign up
-            </Text>
-          </Button>
-          <Button role="link" aria-label="로그인하러 가기">
-            <Text fontSize="1.5rem" fontFamily="JamsilMedium">
-              Log in
+              시작하기
             </Text>
           </Button>
         </FlexColumnJustifyAlignCenter>
