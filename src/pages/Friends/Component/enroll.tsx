@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Box, Button, Input, Stack, Text } from "@chakra-ui/react";
 import "react-circular-progressbar/dist/styles.css";
-import { useRouter } from "../../hooks/useRouter";
+import { OkButton } from "../../../components/common/OkButton";
 
 interface FriendsEnrollProps {
   nickName: string;
@@ -18,8 +18,6 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
   setNickName,
   setPhoneNumber,
 }) => {
-  const { push } = useRouter();
-
   const onChangNickNameInput = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setNickName(e.target.value);
@@ -33,7 +31,9 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
     [],
   );
   const onClickSubmit = useCallback(() => {
-    // TODO: Check PhoneNumber And Register
+    // TODO: Check PhoneNumber And Register API
+    // TODO: Loading Check During Awating API
+    console.log(nickName, phoneNumber);
     // if fail -> Fail Notice
     // if success -> setStatus(true)
     setStatus(true);
@@ -41,26 +41,29 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
 
   return (
     <Stack
-      gap="2rem"
-      padding="2rem"
+      gap="3rem"
+      padding="3.5rem"
       alignItems="center"
       justifyContent="center"
       width="100%"
       margin="auto"
     >
-      <Text textAlign="center" fontSize="1rem" color="white">
+      <Text
+        textAlign="center"
+        fontFamily="JamsilMedium"
+        fontWeight="medium"
+        fontSize="1.5rem"
+        color="white"
+      >
         친구를 등록하시겠습니까?
       </Text>
-      <Stack
-        width="100%"
-        gap="3rem"
-        padding="1.5rem"
-        border="1px solid #C1BEBE"
-      >
-        <Stack gap="0rem">
+      <Stack width="100%" gap="3rem" padding="2rem" border="1px solid #C1BEBE">
+        <Stack gap="1rem" margin="1rem 0rem">
           <Input
             placeholder="NAME"
-            fontSize="1rem"
+            fontFamily="JamsilExtraBold"
+            fontWeight="bold"
+            fontSize="1.5rem"
             color="fontColor.gray"
             border="0"
             focusBorderColor="transparent"
@@ -71,7 +74,9 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
           <Box backgroundColor="#C1BEBE" width="100%" height="2px" />
           <Input
             placeholder="PHONE NUMBER"
-            fontSize="1rem"
+            fontFamily="JamsilExtraBold"
+            fontWeight="bold"
+            fontSize="1.5rem"
             color="fontColor.gray"
             border="0"
             focusBorderColor="transparent"
@@ -81,17 +86,7 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
           />
           <Box backgroundColor="#C1BEBE" width="100%" height="2px" />
         </Stack>
-        <Button
-          onClick={onClickSubmit}
-          size="md"
-          alignSelf="flex-end"
-          height="2rem"
-          background="gradient.button"
-          fontSize="1.2rem"
-          color="white"
-        >
-          OK
-        </Button>
+        <OkButton alignSelf="flex-end" onClick={onClickSubmit} />
       </Stack>
     </Stack>
   );

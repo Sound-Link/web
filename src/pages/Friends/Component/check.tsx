@@ -1,8 +1,9 @@
 import React, { useCallback } from "react";
-import { Box, Button, Flex, Image, Input, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import "react-circular-progressbar/dist/styles.css";
-import { useRouter } from "../../hooks/useRouter";
-import Images from "../../assets/images/Icon";
+import { useRouter } from "../../../hooks/useRouter";
+import Images from "../../../assets/images/Icon";
+import { OkButton } from "../../../components/common/OkButton";
 
 interface FriendsEnrollProps {
   nickName: string;
@@ -19,8 +20,8 @@ const FriendsCheck: React.FC<FriendsEnrollProps> = ({ nickName }) => {
 
   return (
     <Stack
-      gap="2rem"
-      padding="2rem"
+      gap="3rem"
+      padding="3.5rem"
       alignItems="center"
       justifyContent="center"
       width="100%"
@@ -28,43 +29,30 @@ const FriendsCheck: React.FC<FriendsEnrollProps> = ({ nickName }) => {
     >
       <Text
         textAlign="center"
-        fontFamily="JamsilBold"
-        fontSize="1rem"
+        fontFamily="JamsilMedium"
+        fontWeight="medium"
+        fontSize="1.5rem"
         color="white"
       >
         친구의 정보가 업로드 되었습니다.
       </Text>
-      <Stack
-        width="100%"
-        gap="3rem"
-        padding="1.5rem"
-        border="1px solid #C1BEBE"
-      >
+      <Stack width="100%" gap="3rem" padding="2rem" border="1px solid #C1BEBE">
         <Stack gap="1rem" alignItems="center">
-          <Flex width="2rem" height="2rem">
+          <Flex width="4rem" height="4rem">
             <Image src={Images.profileIcon} alt="profile-img" />
           </Flex>
           <Text
             textAlign="center"
-            fontFamily="JamsilBold"
-            fontSize="1rem"
+            fontFamily="JamsilExtraBold"
+            fontWeight="bold"
+            fontSize="1.2rem"
             color="white"
           >
-            이정민
+            {nickName}
           </Text>
           <Box backgroundColor="#C1BEBE" width="100%" height="2px" />
         </Stack>
-        <Button
-          onClick={onClickConfirm}
-          size="md"
-          alignSelf="flex-end"
-          height="2rem"
-          background="gradient.button"
-          fontSize="1.2rem"
-          color="white"
-        >
-          OK
-        </Button>
+        <OkButton alignSelf="flex-end" onClick={onClickConfirm} />
       </Stack>
     </Stack>
   );

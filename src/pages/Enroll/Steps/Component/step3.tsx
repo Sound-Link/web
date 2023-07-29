@@ -2,21 +2,22 @@ import React from "react";
 import { Button, Center, Stack, Text } from "@chakra-ui/react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { useRouter } from "../../../hooks/useRouter";
+import { useRouter } from "../../../../hooks/useRouter";
+import { OkButton } from "../../../../components/common/OkButton";
 
 const EnrollStep3: React.FC = () => {
   const { push } = useRouter();
 
   return (
     <Stack
-      spacing={10}
+      gap="3.5rem"
       alignItems="center"
-      padding="2rem"
-      marginTop="3rem"
+      padding="4rem"
       width="100%"
+      marginTop="7rem"
     >
       <Center
-        width="15rem"
+        width="80%"
         borderRadius="50%"
         // padding="0.2rem"
         // background="gradient.button"
@@ -43,31 +44,16 @@ const EnrollStep3: React.FC = () => {
 
       <Text
         color="#7D7D7F"
-        fontSize="1rem"
-        fontFamily="JamsilMedium"
-        fontWeight="semibold"
+        fontSize="1.5rem"
+        fontFamily="JamsilExtraBold"
+        fontWeight="bold"
         textAlign="center"
       >
         참여자의 음성이
         <br />
         정상적으로 등록되었습니다
       </Text>
-      <Center>
-        <Button
-          onClick={() => push({ url: "/" })}
-          background="gradient.button"
-          size="lg"
-        >
-          <Text
-            fontFamily="JamsilExtraBold"
-            fontWeight="extrabold"
-            fontSize="1.5rem"
-            color="#414142"
-          >
-            OK
-          </Text>
-        </Button>
-      </Center>
+      <OkButton onClick={() => push({ url: "/" })} alignItems="center" />
     </Stack>
   );
 };

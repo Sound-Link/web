@@ -9,27 +9,27 @@ const PrivateLayout = () => {
 
   return (
     <Stack width="100%" height="100%" bgColor="bgColor.gray">
-      <Center padding="1rem">
+      <Center padding="1.5rem">
         <Text
           color="fontColor.gray"
-          fontSize="1.5rem"
+          fontSize="2rem"
           fontFamily="JamsilExtraBold"
           fontWeight="bold"
         >
           SOUNDLINK
         </Text>
-        <Stack direction="row" position="absolute" right="1rem">
+        <Stack gap="1rem" direction="row" position="absolute" right="3rem">
           <Flex
-            width="2rem"
-            height="2rem"
+            width="3rem"
+            height="3rem"
             borderRadius="50%"
             backgroundSize="cover"
             backgroundImage={Images.enrollIcon}
             onClick={() => push({ url: "/enroll" })}
           />
           <Flex
-            width="2rem"
-            height="2rem"
+            width="3rem"
+            height="3rem"
             borderRadius="50%"
             backgroundSize="cover"
             backgroundImage={Images.createIcon}
@@ -40,26 +40,26 @@ const PrivateLayout = () => {
       <Box flex="1">
         <Outlet />
       </Box>
-      <Center padding="1.5rem" justifyContent="space-evenly">
+      <Center padding="4rem" justifyContent="space-evenly">
         <Flex
-          width="3rem"
-          height="3rem"
+          width="4rem"
+          height="4rem"
           borderRadius="50%"
           backgroundSize="cover"
           backgroundImage={Images.friendIcon}
           onClick={() => push({ url: "/friends" })}
         />
         <Flex
-          width="3rem"
-          height="3rem"
+          width="4rem"
+          height="4rem"
           borderRadius="50%"
           backgroundSize="cover"
           backgroundImage={Images.homeIcon}
           onClick={() => push({ url: "/" })}
         />
         <Flex
-          width="3rem"
-          height="3rem"
+          width="4rem"
+          height="4rem"
           borderRadius="50%"
           backgroundSize="cover"
           backgroundImage={Images.chatIcon}

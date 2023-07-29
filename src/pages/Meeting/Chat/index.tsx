@@ -1,4 +1,4 @@
-import { Button, Center, Stack } from "@chakra-ui/react";
+import { Center, Stack } from "@chakra-ui/react";
 
 const MeetingChat = () => {
   return (
@@ -16,9 +16,6 @@ const MeetingChat = () => {
           Chatting Room
         </Button> */}
       </Center>
-      {/* <Suspense fallback={<div>Loading...</div>}>
-        <Test />
-      </Suspense> */}
     </Stack>
   );
 };

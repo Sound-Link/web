@@ -1,9 +1,9 @@
 import { useState, useCallback } from "react";
 import { Flex } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import EnrollStep2 from "./step2";
-import EnrollStep3 from "./step3";
-import EnrollStep1 from "./step1";
+import EnrollStep2 from "./Component/step2";
+import EnrollStep3 from "./Component/step3";
+import EnrollStep1 from "./Component/step1";
 
 const StepComponent = styled(Flex)`
   opacity: 0;
@@ -23,8 +23,7 @@ const EnrollSteps = () => {
   }, []);
 
   return (
-    // opacity로 화면 전환
-    // 화면 전환 수정 필요
+    // TODO: Opacity로 화면 전환?
     <Flex flex="1" width="100%">
       {stepStatus === 1 && (
         <StepComponent

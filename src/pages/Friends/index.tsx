@@ -1,21 +1,9 @@
-import { useState, useCallback, useEffect } from "react";
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  Image,
-  Input,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import { useRouter } from "../../hooks/useRouter";
-import Images from "../../assets/images/Icon";
-import FriendsEnroll from "./enroll";
-import FriendsCheck from "./check";
+import { useState } from "react";
+import { Flex } from "@chakra-ui/react";
+import FriendsEnroll from "./Component/enroll";
+import FriendsCheck from "./Component/check";
 
 const Friends = () => {
-  const { push } = useRouter();
   const [nickName, setNickName] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [status, setStatus] = useState<boolean>(false);

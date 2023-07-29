@@ -8,10 +8,10 @@ const EnrollLayout = () => {
 
   return (
     <Stack width="100%" height="100%" bgColor="bgColor.gray">
-      <Center padding="1rem">
+      <Center padding="1.5rem">
         <Text
           color="fontColor.gray"
-          fontSize="1.5rem"
+          fontSize="2rem"
           fontFamily="JamsilExtraBold"
           fontWeight="bold"
         >

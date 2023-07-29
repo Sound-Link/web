@@ -3,6 +3,7 @@ import { Center, Flex, Stack, Text } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { bridge } from "../../../../utils/bridge";
 
 const totalSpeakingTime = 20;
 const intervalSpeakingTime = 10;
@@ -20,26 +21,51 @@ interface EnrollStep2Props {
 }
 
 const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
+  const [res, setRes] = useState("");
+  const [onRecording, setOnRecording] = useState<boolean>(false);
   const [time, setTime] = useState<number>(totalSpeakingTime);
 
   useEffect(() => {
-    if (time > 0) {
-      setTimeout(() => setTime(time - 1), 1000);
-    } else {
-      nextStep();
+    async function execFunction() {
+      if (time > 0) {
+        if (!onRecording && time === totalSpeakingTime) {
+          setOnRecording(true);
+          // TODO: 디테일한 권한 처리 나중에
+          // await bridge({
+          //   type: "PERMISSIONS",
+          // });
+          // await bridge({
+          //   type: "RECORD_START",
+          // });
+        }
+        setTimeout(() => setTime(time - 1), 1000);
+      } else {
+        setOnRecording(false);
+        // await bridge<{ uri: string }>({
+        //   type: "RECORD_STOP",
+        //   onSuccess: s => {
+        //     // console.log(s.uri);
+        //     setRes(s.uri);
+        //   },
+        // });
+        console.log(res);
+        // POST API
+        nextStep();
+      }
     }
+    execFunction();
   }, [time]);
 
   return (
     <Stack
-      spacing={10}
+      gap="3.5rem"
       alignItems="center"
-      padding="2rem"
-      marginTop="3rem"
+      padding="4rem"
       width="100%"
+      marginTop="7rem"
     >
       <Center
-        width="15rem"
+        width="80%"
         borderRadius="50%"
         // padding="0.2rem"
         // background="gradient.button"
@@ -66,11 +92,14 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
 
       <Text
         color="#7D7D7F"
-        fontSize="1rem"
-        fontFamily="JamsilMedium"
-        fontWeight="semibold"
+        fontSize="1.5rem"
+        fontFamily="JamsilBold"
+        fontWeight="bold"
+        textAlign="center"
       >
-        다음 문장을 읽어주시길 바랍니다
+        다음 문장을
+        <br />
+        읽어주시길 바랍니다
       </Text>
 
       {time > intervalSpeakingTime && (
@@ -81,12 +110,18 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
               : ""
           }
           background="linear-gradient(to top, orange 0%,  purple 100%)"
-          padding="2px"
+          padding="1px"
+          width="100%"
         >
-          <Flex padding="2rem" backgroundColor="bgColor.gray">
+          <Flex
+            padding="2rem"
+            backgroundColor="bgColor.gray"
+            width="100%"
+            justifyContent="center"
+          >
             <Text
               color="fontColor.gray"
-              fontSize="1.3rem"
+              fontSize="2rem"
               fontFamily="JamsilExtraBold"
               fontWeight="bold"
               textAlign="center"
@@ -109,11 +144,17 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
           }
           background="linear-gradient(to top, orange 0%,  purple 100%)"
           padding="2px"
+          width="100%"
         >
-          <Flex padding="2rem" backgroundColor="bgColor.gray">
+          <Flex
+            padding="2rem"
+            backgroundColor="bgColor.gray"
+            width="100%"
+            justifyContent="center"
+          >
             <Text
               color="fontColor.gray"
-              fontSize="1.3rem"
+              fontSize="2rem"
               fontFamily="JamsilExtraBold"
               fontWeight="bold"
               textAlign="center"

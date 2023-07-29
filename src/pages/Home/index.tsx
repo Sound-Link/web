@@ -7,33 +7,39 @@ const Home = () => {
   const { push } = useRouter();
 
   return (
-    <Stack padding="1rem">
-      <Flex gap="1rem" alignItems="center" padding="1rem">
-        <Flex width="2rem" height="2rem">
+    <Stack gap="5rem" padding="2.5rem">
+      <Flex gap="1rem" alignItems="center">
+        <Flex width="3rem" height="3rem">
           <Image src={Images.profileIcon} alt="profile-img" />
         </Flex>
         <Text
           textAlign="center"
-          fontFamily="JamsilBold"
-          fontSize="1rem"
+          fontFamily="JamsilExtraBold"
+          fontWeight="bold"
+          fontSize="1.5rem"
           color="white"
         >
-          김은서
+          김은서 님
         </Text>
       </Flex>
-      <Text fontFamily="JamsilBold" fontSize="1rem" color="fontColor.gray">
-        친구 n명
-      </Text>
-      <Stack gap={0}>
+      <Stack gap="2rem">
+        <Text
+          fontFamily="JamsilExtraBold"
+          fontWeight="bold"
+          fontSize="1.3rem"
+          color="fontColor.gray"
+        >
+          친구 1명
+        </Text>
         {/* 친구 리스트 */}
-        <Flex gap="1rem" alignItems="center" padding="1rem">
-          <Flex width="2rem" height="2rem">
+        <Flex gap="1rem" alignItems="center">
+          <Flex width="3rem" height="3rem">
             <Image src={Images.profileIcon} alt="profile-img" />
           </Flex>
           <Text
             textAlign="center"
             fontFamily="JamsilBold"
-            fontSize="1rem"
+            fontSize="1.2rem"
             color="white"
           >
             김은서
