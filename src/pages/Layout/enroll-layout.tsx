@@ -1,7 +1,6 @@
-import React, { useCallback } from "react";
-import { Box, Center, Flex, Image, Stack, Text } from "@chakra-ui/react";
+import React from "react";
+import { Center, Flex, Stack, Text } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
-import Images from "../../assets/images/Icon";
 import { useRouter } from "../../hooks/useRouter";
 
 const EnrollLayout = () => {
@@ -19,9 +18,9 @@ const EnrollLayout = () => {
           SOUNDLINK
         </Text>
       </Center>
-      <Box flex="1">
+      <Flex width="100%" flex="1">
         <Outlet />
-      </Box>
+      </Flex>
     </Stack>
   );
 };

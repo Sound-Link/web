@@ -1,40 +1,42 @@
-import { useEffect, useState } from "react";
+export {};
 
-const MY_HOST_NAME = "";
-// eslint-disable-next-line no-shadow
-export enum MySocketState {
-  onNewChatReceived = "onNewChatReceived",
-  onConnectionFailed = "onConnectionFaield",
-  onConnectionOpened = "onConnectionOpened",
-}
+// import { useEffect, useState } from "react";
 
-// TODO
-export const useMySocket = (
-  onConnectionStateChanged: (state: MySocketState) => void,
-) => {
-  const [responseMessage, setResponseMessage] = useState("");
+// const MY_HOST_NAME = "";
+// // eslint-disable-next-line no-shadow
+// export enum MySocketState {
+//   onNewChatReceived = "onNewChatReceived",
+//   onConnectionFailed = "onConnectionFaield",
+//   onConnectionOpened = "onConnectionOpened",
+// }
 
-  const connectStart = () => {
-    const ws = new WebSocket(MY_HOST_NAME);
-    ws.onmessage = e => {
-      e.preventDefault();
-      const { data } = e;
+// // TODO
+// export const useMySocket = (
+//   onConnectionStateChanged: (state: MySocketState) => void,
+// ) => {
+//   const [responseMessage, setResponseMessage] = useState("");
 
-      setResponseMessage(data);
-      onConnectionStateChanged(MySocketState.onNewChatReceived);
-    };
+//   const connectStart = () => {
+//     const ws = new WebSocket(MY_HOST_NAME);
+//     ws.onmessage = e => {
+//       e.preventDefault();
+//       const { data } = e;
 
-    ws.onopen = () => {
-      onConnectionStateChanged(MySocketState.onConnectionOpened);
-    };
+//       setResponseMessage(data);
+//       onConnectionStateChanged(MySocketState.onNewChatReceived);
+//     };
 
-    ws.onclose = () => {
-      onConnectionStateChanged(MySocketState.onConnectionFailed);
-    };
-  };
+//     ws.onopen = () => {
+//       onConnectionStateChanged(MySocketState.onConnectionOpened);
+//     };
 
-  useEffect(() => {
-    connectStart();
-  }, []);
-  return { responseMessage };
-};
+//     ws.onclose = () => {
+//       onConnectionStateChanged(MySocketState.onConnectionFailed);
+//     };
+//   };
+
+//   useEffect(() => {
+//     connectStart();
+//   }, []);
+//   return { responseMessage };
+// };

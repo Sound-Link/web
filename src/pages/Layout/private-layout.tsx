@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { Box, Center, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import Images from "../../assets/images/Icon";

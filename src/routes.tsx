@@ -9,6 +9,7 @@ import Enroll from "./pages/Enroll";
 import EnrollStep from "./pages/Enroll/Steps/index";
 import PrivateLayout from "./pages/Layout/private-layout";
 import MeetingChat from "./pages/Meeting/Chat";
+import EnrollLayout from "./pages/Layout/enroll-layout";
 
 const RouteGroup = () => {
   return (
@@ -18,11 +19,13 @@ const RouteGroup = () => {
           <Route path="/" element={<Home />} />
           <Route path="/test" element={<Test />} />
           <Route path="/enroll" element={<Enroll />} />
-          <Route path="/enroll/steps" element={<EnrollStep />} />
           <Route path="/friends" element={<Friends />} />
-          <Route path="/meeting" element={<Meeting />} />
-          <Route path="/meeting/chat" element={<MeetingChat />} />
         </Route>
+        <Route element={<EnrollLayout />}>
+          <Route path="/enroll/steps" element={<EnrollStep />} />
+        </Route>
+        <Route path="/meeting" element={<Meeting />} />
+        <Route path="/meeting/chat" element={<MeetingChat />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
       </Routes>

@@ -19,31 +19,37 @@ const Fonts = () => (
             font-family:'JamsilThin';
             src:url(${JamsilThinOtf}) format('embedded-opentype'),
                 url(${JamsilThinTtf}) format('truetype'),
+            font-weight: lighter;
         }
         @font-face{
             font-family:'JamsilLight';
             src:url(${JamsilLightOtf}) format('embedded-opentype'),
                 url(${JamsilLightTtf}) format('truetype'),
+            font-weight: lighter;
         }
         @font-face{
             font-family:'JamsilRegular';
             src:url(${JamsilRegularOtf}) format('embedded-opentype'),
                 url(${JamsilRegularTtf}) format('truetype'),
+            font-weight: nomal;
         }
         @font-face{
             font-family:'JamsilMedium';
             src:url(${JamsilMediumOtf}) format('embedded-opentype'),
                 url(${JamsilMediumTtf}) format('truetype'),
+            font-weight: nomal;
         }
         @font-face{
             font-family:'JamsilBold';
             src:url(${JamsilBoldOtf}) format('embedded-opentype'),
                 url(${JamsilBoldTtf}) format('truetype'),
+            font-weight: bold;
         }
         @font-face{
             font-family:'JamsilExtraBold';
             src:url(${JamsilExtraBoldOtf}) format('embedded-opentype'),
                 url(${JamsilExtraBoldTtf}) format('truetype'),
+            font-weight: bold;
         }
         `}
   />
