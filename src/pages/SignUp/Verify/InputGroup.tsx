@@ -40,6 +40,7 @@ export const InputGroup = ({
         ref={inputRef}
         value={verifyValue}
         onChange={handleChange}
+        type="tel"
       />
       {[0, 1, 2, 3].map(arr => {
         return (
