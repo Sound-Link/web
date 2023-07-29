@@ -9,6 +9,7 @@ import voiceIcon from "./voice-icon.png";
 import signInIcon from "./가입 로고.png";
 import inputClearButton from "./input-clear-button.png";
 import noIcon from "./no-button.png";
+import signUpPage from "./가입페이지.png";
 
 const Images = {
   chatIcon,
@@ -22,6 +23,7 @@ const Images = {
   inputClearButton,
   noIcon,
   okIcon,
+  signUpPage,
 };
 
 export default Images;
