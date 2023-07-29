@@ -1,5 +1,11 @@
 import { Flex, Box } from "@chakra-ui/react";
-import { ChangeEvent, Dispatch, SetStateAction, useRef } from "react";
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+} from "react";
 
 interface InputGroupProps {
   verifyValue: string;
@@ -16,6 +22,10 @@ export const InputGroup = ({
     if (value.length > 4 || Number.isNaN(Number(value))) return;
     setVerifyValue(value);
   };
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   return (
     <Flex

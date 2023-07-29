@@ -3,15 +3,17 @@ import { useRouter } from "../../../hooks/useRouter";
 import { NoButton } from "../../../components/common/NoButton";
 import { OkButton } from "../../../components/common/OkButton";
 import { TopImageLayout } from "../../Layout/TopImageLayout";
+import { useAuth } from "../../../hooks/useAuth";
 
 export const SendSMS = () => {
   const { query, back, push } = useRouter();
+  useAuth();
   const { phoneNumber } = query as { [key: string]: string };
 
   const handleSendSMS = () => {
     console.log("sendSMS");
     push({
-      url: "/signUp/verify",
+      url: `/signUp/verify/${phoneNumber}`,
     });
   };
 

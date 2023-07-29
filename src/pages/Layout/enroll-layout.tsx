@@ -1,10 +1,9 @@
-import React from "react";
 import { Center, Flex, Stack, Text } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
-import { useRouter } from "../../hooks/useRouter";
+import { useAuth } from "../../hooks/useAuth";
 
 const EnrollLayout = () => {
-  const { push } = useRouter();
+  useAuth();
 
   return (
     <Stack width="100%" height="100%" bgColor="bgColor.gray">

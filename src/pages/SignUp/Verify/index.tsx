@@ -6,15 +6,17 @@ import { TopImageLayout } from "../../Layout/TopImageLayout";
 import { useRouter } from "../../../hooks/useRouter";
 import { InputGroup } from "./InputGroup";
 import { TextButton } from "./TextButton";
+import { useAuth } from "../../../hooks/useAuth";
 
 export const VerifyPage = () => {
-  const { back, push } = useRouter();
+  useAuth();
+  const { back, push, query } = useRouter();
   const [verifyValue, setVerifyValue] = useState("");
   const handleVerify = () => {
     if (verifyValue.length !== 4) return;
     console.log("verify");
     push({
-      url: "/signUp/verify/complete",
+      url: `/signUp/verify/complete/${query.phoneNumber}`,
     });
   };
 
