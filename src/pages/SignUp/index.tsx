@@ -4,6 +4,8 @@ import { useRouter } from "../../hooks/useRouter";
 import { InputWithClear } from "../../components/common/InputWithClear";
 import { CheckBox } from "./CheckBox";
 import { OkButton } from "../../components/common/OkButton";
+import Images from "../../assets/images/Icon";
+import { TopImageLayout } from "../Layout/TopImageLayout";
 
 const SignUp = () => {
   const { push } = useRouter();
@@ -32,12 +34,7 @@ const SignUp = () => {
   };
 
   return (
-    <Flex
-      justify="center"
-      width="100%"
-      height="100%"
-      backgroundColor="bgColor.gray"
-    >
+    <TopImageLayout>
       <Flex
         marginBottom="1rem"
         justify="center"
@@ -87,7 +84,7 @@ const SignUp = () => {
           onClick={handleNextStep}
         />
       </Flex>
-    </Flex>
+    </TopImageLayout>
   );
 };
 
