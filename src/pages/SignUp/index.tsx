@@ -6,8 +6,11 @@ import { CheckBox } from "./CheckBox";
 import { OkButton } from "../../components/common/OkButton";
 import { TopImageLayout } from "../Layout/TopImageLayout";
 import { useAuth } from "../../hooks/useAuth";
+import { useSignIn } from "../../hooks/useSignIn";
 
 const SignUp = () => {
+  const { data } = useSignIn("000-0000-0000");
+
   useAuth();
   const { push } = useRouter();
   const [formState, setFormState] = useState({
