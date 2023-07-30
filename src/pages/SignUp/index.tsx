@@ -6,7 +6,6 @@ import { CheckBox } from "./CheckBox";
 import { OkButton } from "../../components/common/OkButton";
 import { TopImageLayout } from "../Layout/TopImageLayout";
 import { useAuth } from "../../hooks/useAuth";
-import { useSendPhone } from "./queries/useSendPhone";
 
 const SignUp = () => {
   useAuth();
@@ -15,13 +14,6 @@ const SignUp = () => {
     phoneNumber: "",
     isAgreeAge14Over: false,
     isAgreeTerms: false,
-  });
-  const { mutate } = useSendPhone({
-    onSuccess: () => {
-      push({
-        url: `/signUp/sendSMS/${formState.phoneNumber}`,
-      });
-    },
   });
 
   const handleClear = () =>
@@ -37,7 +29,9 @@ const SignUp = () => {
 
   const handleNextStep = () => {
     if (!Object.values(formState).every(v => v)) return;
-    mutate(formState.phoneNumber);
+    push({
+      url: `/signUp/sendSMS/${formState.phoneNumber}`,
+    });
   };
 
   return (
