@@ -28,12 +28,12 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
   const [onRecording, setOnRecording] = useState<boolean>(false);
   const [time, setTime] = useState<number>(totalSpeakingTime);
 
-  const { mutate } = useVoiceRegister({
-    // TODO: loading, error exec
-    onSuccess: () => {
-      nextStep();
-    },
-  });
+  // const { mutate } = useVoiceRegister({
+  //   // TODO: loading, error exec
+  //   onSuccess: () => {
+  //     nextStep();
+  //   },
+  // });
 
   useEffect(() => {
     async function execFunction() {
@@ -59,9 +59,9 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
         //   },
         // });
         console.log(res);
-        if (MY_PHONE_NUMBER) {
-          mutate({ user_id: MY_PHONE_NUMBER, voice_file_uri: res });
-        }
+        // if (MY_PHONE_NUMBER) {
+        //   mutate({ user_id: MY_PHONE_NUMBER, voice_file_uri: res });
+        // }
       }
     }
     execFunction();

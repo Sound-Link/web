@@ -11,18 +11,17 @@ const MeetingCreate = () => {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [selectedName, setSelectedName] = useState<string>("");
 
-  const { mutate } = useRoomCreate({
-    // TODO: loading, error exec
-    onSuccess: data => {
-      push({
-        url: `/meeting/${data}`,
-      });
-    },
-  });
+  // const { mutate } = useRoomCreate({
+  //   // TODO: loading, error exec
+  //   onSuccess: data => {
+  //     push({
+  //       url: `/meeting/${data}`,
+  //     });
+  //   },
+  // });
 
   const createRoom = async () => {
-    // TODO: Room 생성되는 동안 로딩 처리
-    mutate({ name: selectedName, user_ids: selectedIds });
+    // mutate({ name: selectedName, user_ids: selectedIds });
   };
 
   return (

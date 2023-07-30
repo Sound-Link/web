@@ -1,7 +1,24 @@
 import { Flex, Image, Stack, Text } from "@chakra-ui/react";
 import Images from "../../assets/images/Icon";
+import { useUserDetail } from "./queries/useUserDetail";
+import { MY_PHONE_NUMBER } from "../../hooks/useAuth";
+import { useFriendList } from "./queries/useFriendList";
 
 const Home = () => {
+  // const {
+  //   data: userInfoData,
+  //   isLoading: userInfoIsLoading,
+  //   isError: userInfoIsError,
+  // } = MY_PHONE_NUMBER
+  //   ? useUserDetail(MY_PHONE_NUMBER)
+  //   : { data: null, isLoading: null, isError: null };
+  // const {
+  //   data: friendListData,
+  //   isLoading: friendListIsLoading,
+  //   isError: friendListIsError,
+  // } = MY_PHONE_NUMBER
+  //   ? useFriendList(MY_PHONE_NUMBER)
+  //   : { data: null, isLoading: null, isError: null };
   return (
     <Stack gap="5rem" padding="2.5rem">
       <Flex gap="1rem" alignItems="center">
