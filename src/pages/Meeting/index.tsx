@@ -1,5 +1,4 @@
 import { Flex } from "@chakra-ui/react";
-import { Layout } from "./Layout";
 import { MeetingItem } from "./MeetingItem";
 
 const MOCKING_DATA = [
@@ -25,21 +24,19 @@ const MOCKING_DATA = [
 
 const Meeting = () => {
   return (
-    <Layout>
-      <Flex
-        height="100%"
-        width="100%"
-        paddingTop="8.2rem"
-        direction="column"
-        gap="3.6rem"
-        px="2.2rem"
-        as="ol"
-      >
-        {MOCKING_DATA.map(item => (
-          <MeetingItem key={item.id} {...item} />
-        ))}
-      </Flex>
-    </Layout>
+    <Flex
+      height="100%"
+      width="100%"
+      paddingTop="8.2rem"
+      direction="column"
+      gap="3.6rem"
+      px="2.2rem"
+      as="ol"
+    >
+      {MOCKING_DATA.map(item => (
+        <MeetingItem key={item.id} {...item} />
+      ))}
+    </Flex>
   );
 };
 
