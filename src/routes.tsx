@@ -26,15 +26,13 @@ const RouteGroup = () => {
           <Route path="/enroll" element={<Enroll />} />
           <Route path="/friends" element={<Friends />} />
           <Route path="/meeting" element={<Meeting />} />
-          <Route path="/meeting/chat" element={<MeetingChat />} />
+          <Route path="/meeting/:id" element={<MeetingChat />} />
           <Route path="/meeting/create" element={<MeetingCreate />} />
           <Route path="/meeting/detail/:roomId" element={<MeetingDetail />} />
         </Route>
         <Route element={<EnrollLayout />}>
           <Route path="/enroll/steps" element={<EnrollStep />} />
         </Route>
-        <Route path="/meeting" element={<Meeting />} />
-        <Route path="/meeting/:id" element={<MeetingChat />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/signUp/sendSMS/:phoneNumber" element={<SendSMS />} />

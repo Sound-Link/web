@@ -31,6 +31,7 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "import/no-unresolved": "off",
     "react/react-in-jsx-scope": "off",
+    camelcase: "off",
     "no-unused-vars": "off",
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
