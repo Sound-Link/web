@@ -33,11 +33,8 @@ const RouteGroup = () => {
         <Route element={<EnrollLayout />}>
           <Route path="/enroll/steps" element={<EnrollStep />} />
         </Route>
-<<<<<<< HEAD
-=======
         <Route path="/meeting" element={<Meeting />} />
         <Route path="/meeting/:id" element={<MeetingChat />} />
->>>>>>> 34e2c2b67a7f8b8286947b87e32ad6eb7589ec78
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/signUp/sendSMS/:phoneNumber" element={<SendSMS />} />
