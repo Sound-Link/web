@@ -11,6 +11,9 @@ import signInIcon from "./가입 로고.png";
 import inputClearButton from "./input-clear-button.png";
 import noIcon from "./no-button.png";
 import signUpPage from "./가입페이지.png";
+import checkIcon from "./check-icon.svg";
+import emptyCheckIcon from "./empty-check-icon.svg";
+import groupIcon from "./group-icon.svg";
 
 const Images = {
   chatIcon,
@@ -26,6 +29,9 @@ const Images = {
   noIcon,
   okIcon,
   signUpPage,
+  checkIcon,
+  emptyCheckIcon,
+  groupIcon,
 };
 
 export default Images;

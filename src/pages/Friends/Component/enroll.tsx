@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Box, Button, Input, Stack, Text } from "@chakra-ui/react";
+import { Box, Input, Stack, Text } from "@chakra-ui/react";
 import "react-circular-progressbar/dist/styles.css";
 import { OkButton } from "../../../components/common/OkButton";
 
@@ -33,7 +33,7 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
   const onClickSubmit = useCallback(() => {
     // TODO: Check PhoneNumber And Register API
     // TODO: Loading Check During Awating API
-    console.log(nickName, phoneNumber);
+    // console.log(nickName, phoneNumber);
     // if fail -> Fail Notice
     // if success -> setStatus(true)
     setStatus(true);
@@ -69,6 +69,7 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
             focusBorderColor="transparent"
             textAlign="center"
             _placeholder={{ color: "#C1BEBE", textAlign: "center" }}
+            value={nickName}
             onChange={onChangNickNameInput}
           />
           <Box backgroundColor="#C1BEBE" width="100%" height="2px" />
@@ -82,6 +83,7 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
             focusBorderColor="transparent"
             textAlign="center"
             _placeholder={{ color: "#C1BEBE", textAlign: "center" }}
+            value={phoneNumber}
             onChange={onChangPhoneNumberInput}
           />
           <Box backgroundColor="#C1BEBE" width="100%" height="2px" />

@@ -69,7 +69,7 @@ const Enroll = () => {
             <NoButton
               onClick={() =>
                 push({
-                  url: "/home",
+                  url: "/",
                 })
               }
             />

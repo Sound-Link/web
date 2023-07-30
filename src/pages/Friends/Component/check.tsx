@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Box, Button, Flex, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import "react-circular-progressbar/dist/styles.css";
 import { useRouter } from "../../../hooks/useRouter";
 import Images from "../../../assets/images/Icon";

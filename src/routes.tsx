@@ -9,6 +9,8 @@ import Enroll from "./pages/Enroll";
 import EnrollStep from "./pages/Enroll/Steps/index";
 import PrivateLayout from "./pages/Layout/private-layout";
 import MeetingChat from "./pages/Meeting/Chat";
+import MeetingCreate from "./pages/Meeting/Create";
+import MeetingDetail from "./pages/Meeting/Detail";
 import EnrollLayout from "./pages/Layout/enroll-layout";
 import { SendSMS } from "./pages/SignUp/SendSMS";
 import { VerifyPage } from "./pages/SignUp/Verify";
@@ -23,12 +25,14 @@ const RouteGroup = () => {
           <Route path="/test" element={<Test />} />
           <Route path="/enroll" element={<Enroll />} />
           <Route path="/friends" element={<Friends />} />
+          <Route path="/meeting" element={<Meeting />} />
+          <Route path="/meeting/chat" element={<MeetingChat />} />
+          <Route path="/meeting/create" element={<MeetingCreate />} />
+          <Route path="/meeting/detail/:roomId" element={<MeetingDetail />} />
         </Route>
         <Route element={<EnrollLayout />}>
           <Route path="/enroll/steps" element={<EnrollStep />} />
         </Route>
-        <Route path="/meeting" element={<Meeting />} />
-        <Route path="/meeting/chat" element={<MeetingChat />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/signUp/sendSMS/:phoneNumber" element={<SendSMS />} />

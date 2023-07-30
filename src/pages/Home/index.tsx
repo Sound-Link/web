@@ -1,11 +1,7 @@
 import { Flex, Image, Stack, Text } from "@chakra-ui/react";
-import { Suspense } from "react";
-import { useRouter } from "../../hooks/useRouter";
 import Images from "../../assets/images/Icon";
 
 const Home = () => {
-  const { push } = useRouter();
-
   return (
     <Stack gap="5rem" padding="2.5rem">
       <Flex gap="1rem" alignItems="center">
