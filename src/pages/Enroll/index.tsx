@@ -1,11 +1,11 @@
-import { Button, Center, Flex, Image, Stack, Text } from "@chakra-ui/react";
+import { Center, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import { useRouter } from "../../hooks/useRouter";
 import Images from "../../assets/images/Icon";
 import { OkButton } from "../../components/common/OkButton";
 import { NoButton } from "../../components/common/NoButton";
 
 const Enroll = () => {
-  const { push } = useRouter();
+  const { push, back } = useRouter();
 
   return (
     <Stack gap="5rem" padding="3rem">
@@ -66,13 +66,7 @@ const Enroll = () => {
             >
               OK
             </Button> */}
-            <NoButton
-              onClick={() =>
-                push({
-                  url: "/home",
-                })
-              }
-            />
+            <NoButton onClick={back} />
             <OkButton
               onClick={() =>
                 push({

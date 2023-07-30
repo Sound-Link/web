@@ -19,6 +19,11 @@ const colors = {
     gray3: "#323232",
     gray4: "#909090",
     gray5: "#707070",
+    gray6: "#828283",
+  },
+  borderColor: {
+    gradient:
+      "linear-gradient(90deg, rgba(255,224,42,1) 0%, rgba(105,154,82,1) 80%, rgba(82,93,158,1) 95%, rgba(107,18,134,1) 100%)",
   },
 };
 

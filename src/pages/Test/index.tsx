@@ -48,6 +48,9 @@ const Test = () => {
           onClick={() => {
             bridge<{ uri: string }>({
               type: "RECORD_STOP",
+              data: {
+                uri: "",
+              },
               onSuccess: s => {
                 console.log(s.uri);
                 setRes(s.uri);
