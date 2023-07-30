@@ -1,11 +1,11 @@
-import { Button, Center, Flex, Image, Stack, Text } from "@chakra-ui/react";
+import { Center, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import { useRouter } from "../../hooks/useRouter";
 import Images from "../../assets/images/Icon";
 import { OkButton } from "../../components/common/OkButton";
 import { NoButton } from "../../components/common/NoButton";
 
 const Enroll = () => {
-  const { push } = useRouter();
+  const { push, back } = useRouter();
 
   return (
     <Stack gap="5rem" padding="3rem">
@@ -40,39 +40,7 @@ const Enroll = () => {
             재등록합니다
           </Text>
           <Flex justifyContent="space-evenly">
-            {/* <Button
-              onClick={() =>
-                push({
-                  url: "/home",
-                })
-              }
-              width="40%"
-              background="gradient.button"
-              fontSize="1.2rem"
-              color="white"
-            >
-              NO
-            </Button>
-            <Button
-              onClick={() =>
-                push({
-                  url: "/enroll/steps",
-                })
-              }
-              width="40%"
-              background="gradient.button"
-              fontSize="1.2rem"
-              color="white"
-            >
-              OK
-            </Button> */}
-            <NoButton
-              onClick={() =>
-                push({
-                  url: "/",
-                })
-              }
-            />
+            <NoButton onClick={back} />
             <OkButton
               onClick={() =>
                 push({
