@@ -27,7 +27,11 @@ const PrivateLayout = () => {
             borderRadius="50%"
             backgroundSize="cover"
             backgroundImage={Images.enrollIcon}
-            onClick={() => push({ url: "/enroll" })}
+            onClick={() =>
+              push({
+                url: "/enroll",
+              })
+            }
           />
           <Flex
             width="3rem"
@@ -35,7 +39,11 @@ const PrivateLayout = () => {
             borderRadius="50%"
             backgroundSize="cover"
             backgroundImage={Images.createIcon}
-            onClick={() => push({ url: "/meeting/create" })}
+            onClick={() =>
+              push({
+                url: "/meeting/create",
+              })
+            }
           />
         </Stack>
       </Center>
@@ -49,7 +57,14 @@ const PrivateLayout = () => {
           borderRadius="50%"
           backgroundSize="cover"
           backgroundImage={Images.friendIcon}
-          onClick={() => push({ url: "/friends" })}
+          onClick={() =>
+            push({
+              url: "/friends",
+              options: {
+                replace: true,
+              },
+            })
+          }
         />
         <Flex
           width="4rem"
@@ -57,7 +72,14 @@ const PrivateLayout = () => {
           borderRadius="50%"
           backgroundSize="cover"
           backgroundImage={Images.homeIcon}
-          onClick={() => push({ url: "/" })}
+          onClick={() =>
+            push({
+              url: "/",
+              options: {
+                replace: true,
+              },
+            })
+          }
         />
         <Flex
           width="4rem"
@@ -65,7 +87,14 @@ const PrivateLayout = () => {
           borderRadius="50%"
           backgroundSize="cover"
           backgroundImage={Images.chatIcon}
-          onClick={() => push({ url: "/meeting" })}
+          onClick={() =>
+            push({
+              url: "/meeting",
+              options: {
+                replace: true,
+              },
+            })
+          }
         />
       </Center>
     </Stack>

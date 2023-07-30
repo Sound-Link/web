@@ -20,7 +20,11 @@ const Header = () => {
         borderRadius="50%"
         backgroundSize="cover"
         backgroundImage={Images.enrollIcon}
-        onClick={() => push({ url: "/enroll" })}
+        onClick={() =>
+          push({
+            url: "/enroll",
+          })
+        }
       />
       <Box
         role="link"
@@ -29,7 +33,71 @@ const Header = () => {
         borderRadius="50%"
         backgroundSize="cover"
         backgroundImage={Images.createIcon}
-        onClick={() => push({ url: "/meeting/create" })}
+        onClick={() =>
+          push({
+            url: "/meeting/create",
+          })
+        }
+      />
+    </Flex>
+  );
+};
+
+const Footer = () => {
+  const { push } = useRouter();
+
+  return (
+    <Flex
+      gap="3.3rem"
+      position="fixed"
+      bottom="4.8rem"
+      left="0"
+      transform="translateX(50%)"
+    >
+      <Box
+        width="4rem"
+        height="4rem"
+        borderRadius="50%"
+        backgroundSize="cover"
+        backgroundImage={Images.friendIcon}
+        onClick={() =>
+          push({
+            url: "/friends",
+            options: {
+              replace: true,
+            },
+          })
+        }
+      />
+      <Box
+        width="4rem"
+        height="4rem"
+        borderRadius="50%"
+        backgroundSize="cover"
+        backgroundImage={Images.homeIcon}
+        onClick={() =>
+          push({
+            url: "/",
+            options: {
+              replace: true,
+            },
+          })
+        }
+      />
+      <Box
+        width="4rem"
+        height="4rem"
+        borderRadius="50%"
+        backgroundSize="cover"
+        backgroundImage={Images.chatIcon}
+        onClick={() =>
+          push({
+            url: "/meeting",
+            options: {
+              replace: true,
+            },
+          })
+        }
       />
     </Flex>
   );
@@ -49,6 +117,7 @@ export const Layout = ({ children }: LayoutProps) => {
     >
       <Header />
       {children}
+      <Footer />
     </Flex>
   );
 };
