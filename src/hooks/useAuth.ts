@@ -4,6 +4,7 @@ import { useRouter } from "./useRouter";
 
 const NOT_AUTH_PATH = ["signUp", "signIn"];
 export const USER_PHONE_NUMBER = "userPhoneNumber";
+export const MY_PHONE_NUMBER = localStorage.getItem(USER_PHONE_NUMBER);
 
 export const useAuth = () => {
   const { pathname } = useLocation();

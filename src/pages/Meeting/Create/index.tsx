@@ -2,16 +2,27 @@ import { Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import MeetingInvite from "./Component/invite";
 import MeetingNaming from "./Component/naming";
+import { useRoomCreate } from "../queries/useRoomCreate";
+import { useRouter } from "../../../hooks/useRouter";
 
 const MeetingCreate = () => {
+  const { push } = useRouter();
   const [onNaming, setOnNaming] = useState<boolean>(false);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [selectedName, setSelectedName] = useState<string>("");
 
-  const createRoom = () => {
+  const { mutate } = useRoomCreate({
+    // TODO: loading, error exec
+    onSuccess: data => {
+      push({
+        url: `/meeting/${data}`,
+      });
+    },
+  });
+
+  const createRoom = async () => {
     // TODO: Room 생성되는 동안 로딩 처리
-    // TODO: Create Room API
-    console.log(selectedIds, selectedName);
+    mutate({ name: selectedName, user_ids: selectedIds });
   };
 
   return (

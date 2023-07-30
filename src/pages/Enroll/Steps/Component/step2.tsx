@@ -4,6 +4,9 @@ import styled from "@emotion/styled";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { bridge } from "../../../../utils/bridge";
+import { useRouter } from "../../../../hooks/useRouter";
+import { useVoiceRegister } from "../../queries/useVoiceRegister";
+import { MY_PHONE_NUMBER } from "../../../../hooks/useAuth";
 
 const totalSpeakingTime = 20;
 const intervalSpeakingTime = 10;
@@ -24,6 +27,13 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
   const [res, setRes] = useState("");
   const [onRecording, setOnRecording] = useState<boolean>(false);
   const [time, setTime] = useState<number>(totalSpeakingTime);
+
+  const { mutate } = useVoiceRegister({
+    // TODO: loading, error exec
+    onSuccess: () => {
+      nextStep();
+    },
+  });
 
   useEffect(() => {
     async function execFunction() {
@@ -49,8 +59,9 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
         //   },
         // });
         console.log(res);
-        // POST API
-        nextStep();
+        if (MY_PHONE_NUMBER) {
+          mutate({ user_id: MY_PHONE_NUMBER, voice_file_uri: res });
+        }
       }
     }
     execFunction();

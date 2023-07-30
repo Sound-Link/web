@@ -2,6 +2,8 @@ import React, { useCallback } from "react";
 import { Box, Input, Stack, Text } from "@chakra-ui/react";
 import "react-circular-progressbar/dist/styles.css";
 import { OkButton } from "../../../components/common/OkButton";
+import { useFriendRegister } from "../queries/useFriendRegister";
+import { MY_PHONE_NUMBER } from "../../../hooks/useAuth";
 
 interface FriendsEnrollProps {
   nickName: string;
@@ -18,6 +20,13 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
   setNickName,
   setPhoneNumber,
 }) => {
+  const { mutate } = useFriendRegister({
+    // TODO: loading, error exec
+    onSuccess: () => {
+      setStatus(true);
+    },
+  });
+
   const onChangNickNameInput = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setNickName(e.target.value);
@@ -31,12 +40,9 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
     [],
   );
   const onClickSubmit = useCallback(() => {
-    // TODO: Check PhoneNumber And Register API
-    // TODO: Loading Check During Awating API
-    // console.log(nickName, phoneNumber);
-    // if fail -> Fail Notice
-    // if success -> setStatus(true)
-    setStatus(true);
+    if (MY_PHONE_NUMBER) {
+      mutate({ user_id: MY_PHONE_NUMBER, phone_number: phoneNumber });
+    }
   }, []);
 
   return (
