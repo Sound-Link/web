@@ -17,7 +17,7 @@ const SignIn = () => {
     <TopImageLayout>
       <FlexColumnJustifyAlignCenter gap="5rem">
         <FlexColumnJustifyAlignCenter gap="3rem">
-          <Image src={Images.signInIcon} height="13.7rem" />
+          <Image src={Images.doubleLogoIcon} height="13.7rem" />
           <Text
             textColor="fontColor.gray2"
             fontFamily="JamsilMedium"

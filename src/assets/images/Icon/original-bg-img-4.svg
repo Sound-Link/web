@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 248.38 253.64">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: url(#linear-gradient-2);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke: url(#linear-gradient-3);
+      }
+
+      .cls-3 {
+        stroke: url(#linear-gradient-9);
+      }
+
+      .cls-4 {
+        stroke: url(#linear-gradient-4);
+      }
+
+      .cls-5 {
+        stroke: url(#linear-gradient-6);
+      }
+
+      .cls-6 {
+        stroke: url(#linear-gradient-7);
+      }
+
+      .cls-7 {
+        stroke: url(#linear-gradient-5);
+      }
+
+      .cls-8 {
+        stroke: url(#linear-gradient);
+      }
+
+      .cls-9 {
+        stroke: url(#linear-gradient-8);
+      }
+
+      .cls-10 {
+        stroke: url(#linear-gradient-10);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="248.38" y1="126.82" x2="0" y2="126.82" gradientUnits="userSpaceOnUse">
+      <stop offset=".37" stop-color="#f8eb30"/>
+      <stop offset=".77" stop-color="#28a8e0"/>
+      <stop offset="1" stop-color="#65308f"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="237.39" x2="10.99" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="226.39" x2="21.99" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="215.4" x2="32.98" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="204.4" y1="126.82" x2="43.98" y2="126.82" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-6" x1="193.41" y1="126.82" x2="54.97" y2="126.82" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-7" x1="182.41" y1="126.82" x2="65.97" y2="126.82" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-8" x1="171.42" y1="126.82" x2="76.96" y2="126.82" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-9" x1="160.42" y1="126.82" x2="87.96" y2="126.82" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-10" x1="149.43" y1="126.82" x2="98.95" y2="126.82" xlink:href="#linear-gradient"/>
+  </defs>
+  <ellipse class="cls-8" cx="124.19" cy="126.82" rx="123.69" ry="126.32"/>
+  <ellipse class="cls-1" cx="124.19" cy="126.82" rx="112.7" ry="115.09"/>
+  <ellipse class="cls-2" cx="124.19" cy="126.82" rx="101.7" ry="103.86"/>
+  <ellipse class="cls-4" cx="124.19" cy="126.82" rx="90.71" ry="92.64"/>
+  <ellipse class="cls-7" cx="124.19" cy="126.82" rx="79.71" ry="81.41"/>
+  <ellipse class="cls-5" cx="124.19" cy="126.82" rx="68.72" ry="70.18"/>
+  <ellipse class="cls-6" cx="124.19" cy="126.82" rx="57.72" ry="58.95"/>
+  <ellipse class="cls-9" cx="124.19" cy="126.82" rx="46.73" ry="47.72"/>
+  <ellipse class="cls-3" cx="124.19" cy="126.82" rx="35.73" ry="36.49"/>
+  <ellipse class="cls-10" cx="124.19" cy="126.82" rx="24.74" ry="25.26"/>
+</svg>

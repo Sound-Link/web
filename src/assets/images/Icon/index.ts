@@ -16,10 +16,19 @@ import profileIcon from "./profile-icon.png";
 import startPage from "./temp-bg-1.png";
 import meetingBackground from "./temp_bg-2.png";
 import signUpPage from "./temp-bg-3.png";
-import logoIcon from "./logo.png";
-import doubleLogoIcon from "./double-logo.png";
-import signInIcon from "./sign-in-logo.png";
+import logoIcon from "./logo.svg";
+import doubleLogoIcon from "./double-logo.svg";
+import gradientLogoIcon from "./gradient-logo.png";
+import gradientDoubleLogoIcon from "./gradient-double-logo.svg";
 import reverseTriangle from "./reverse-triangle.svg";
+import bgImg1 from "./bg-img-1.svg";
+import bgImg2 from "./bg-img-2.svg";
+import bgImg3 from "./bg-img-3.svg";
+import bgImg4 from "./bg-img-4.svg";
+import originalBgImg1 from "./original-bg-img-1.svg";
+import originalBgImg2 from "./original-bg-img-2.svg";
+import originalBgImg3 from "./original-bg-img-3.svg";
+import originalBgImg4 from "./original-bg-img-4.svg";
 
 const Images = {
   chatIcon,
@@ -30,7 +39,6 @@ const Images = {
   profileIcon,
   voiceIcon,
   enrollLoading,
-  signInIcon,
   inputClearButton,
   noIcon,
   okIcon,
@@ -44,6 +52,16 @@ const Images = {
   logoIcon,
   doubleLogoIcon,
   reverseTriangle,
+  gradientLogoIcon,
+  gradientDoubleLogoIcon,
+  bgImg1,
+  bgImg2,
+  bgImg3,
+  bgImg4,
+  originalBgImg1,
+  originalBgImg2,
+  originalBgImg3,
+  originalBgImg4,
 };
 
 export default Images;
