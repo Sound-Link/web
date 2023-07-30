@@ -1,7 +1,7 @@
 const colors = {
   gradient: {
     button:
-      "linear-gradient(90deg, rgba(255,224,42,1) 0%, rgba(105,154,82,1) 80%, rgba(82,93,158,1) 95%, rgba(107,18,134,1) 100%)",
+      "linear-gradient(90deg, rgba(249,236,49,1) 0%, rgba(38,169,224,1) 50%, rgba(101,45,144,1) 100%)",
   },
   bgColor: {
     gray: "#414142",
@@ -23,7 +23,7 @@ const colors = {
   },
   borderColor: {
     gradient:
-      "linear-gradient(90deg, rgba(255,224,42,1) 0%, rgba(105,154,82,1) 80%, rgba(82,93,158,1) 95%, rgba(107,18,134,1) 100%)",
+      "linear-gradient(90deg, rgba(249,236,49,1) 0%, rgba(38,169,224,1) 50%, rgba(101,45,144,1) 100%)",
   },
 };
 
