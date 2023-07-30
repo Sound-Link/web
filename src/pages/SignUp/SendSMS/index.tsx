@@ -4,18 +4,20 @@ import { NoButton } from "../../../components/common/NoButton";
 import { OkButton } from "../../../components/common/OkButton";
 import { TopImageLayout } from "../../Layout/TopImageLayout";
 import { useAuth } from "../../../hooks/useAuth";
+import { useSendPhone } from "../queries/useSendPhone";
 
 export const SendSMS = () => {
   const { query, back, push } = useRouter();
   useAuth();
   const { phoneNumber } = query as { [key: string]: string };
 
-  const handleSendSMS = () => {
-    console.log("sendSMS");
-    push({
-      url: `/signUp/verify/${phoneNumber}`,
-    });
-  };
+  const { mutate } = useSendPhone({
+    onSuccess: () => {
+      push({
+        url: `/signUp/verify/${phoneNumber}`,
+      });
+    },
+  });
 
   return (
     <TopImageLayout>
@@ -39,7 +41,7 @@ export const SendSMS = () => {
         </Text>
         <Flex gap="1.2rem">
           <NoButton onClick={back} />
-          <OkButton onClick={handleSendSMS} />
+          <OkButton onClick={() => mutate(phoneNumber)} />
         </Flex>
       </Flex>
     </TopImageLayout>
