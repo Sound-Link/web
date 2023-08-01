@@ -37,7 +37,10 @@ const RouteGroup = () => {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/signUp/sendSMS/:phoneNumber" element={<SendSMS />} />
         <Route path="/signUp/verify/:phoneNumber" element={<VerifyPage />} />
-        <Route path="/signUp/verify/complete" element={<CompletePage />} />
+        <Route
+          path="/signUp/verify/complete/:phoneNumber"
+          element={<CompletePage />}
+        />
       </Routes>
     </BrowserRouter>
   );
