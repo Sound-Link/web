@@ -9,12 +9,15 @@ import { useSendPhone } from "../queries/useSendPhone";
 export const SendSMS = () => {
   const { query, back, push } = useRouter();
   useAuth();
-  const { phoneNumber } = query as { [key: string]: string };
+  const { phoneNumber, username } = query as { [key: string]: string };
 
   const { mutate } = useSendPhone({
     onSuccess: () => {
       push({
         url: `/signUp/verify/${phoneNumber}`,
+        params: {
+          username: decodeURIComponent(username),
+        },
       });
     },
   });

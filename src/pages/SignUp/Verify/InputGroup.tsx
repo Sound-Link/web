@@ -19,7 +19,7 @@ export const InputGroup = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    if (value.length > 4 || Number.isNaN(Number(value))) return;
+    if (value.length > 6 || Number.isNaN(Number(value))) return;
     setVerifyValue(value);
   };
 
@@ -42,12 +42,12 @@ export const InputGroup = ({
         onChange={handleChange}
         type="tel"
       />
-      {[0, 1, 2, 3].map(arr => {
+      {[0, 1, 2, 3, 4, 5].map(arr => {
         return (
           <Box
-            height="5.6rem"
+            height="5rem"
             borderRadius="1.6rem"
-            width="6.1rem"
+            width="5rem"
             bgColor="bgColor.gray2"
             padding="1rem"
             display="flex"

@@ -7,17 +7,21 @@ import { useRouter } from "../../../hooks/useRouter";
 import { InputGroup } from "./InputGroup";
 import { TextButton } from "./TextButton";
 import { useAuth } from "../../../hooks/useAuth";
+import { useVerify } from "../queries/useVerify";
 
 export const VerifyPage = () => {
   useAuth();
-  const { back, push, query } = useRouter();
+  const { back, push } = useRouter();
   const [verifyValue, setVerifyValue] = useState("");
+  const { mutate } = useVerify({
+    onSuccess: () =>
+      push({
+        url: `/signUp/verify/complete`,
+      }),
+  });
   const handleVerify = () => {
-    if (verifyValue.length !== 4) return;
-    console.log("verify");
-    push({
-      url: `/signUp/verify/complete/${query.phoneNumber}`,
-    });
+    if (verifyValue.length !== 6) return;
+    mutate(Number(verifyValue));
   };
 
   return (
