@@ -7,17 +7,24 @@ import { useRouter } from "../../../hooks/useRouter";
 import { InputGroup } from "./InputGroup";
 import { TextButton } from "./TextButton";
 import { useAuth } from "../../../hooks/useAuth";
+import { useVerify } from "../queries/useVerify";
+import { useSendPhone } from "../queries/useSendPhone";
 
 export const VerifyPage = () => {
   useAuth();
   const { back, push, query } = useRouter();
+  const { phoneNumber } = query as { [key: string]: string };
   const [verifyValue, setVerifyValue] = useState("");
+  const { mutate: reRequest } = useSendPhone();
+  const { mutate } = useVerify({
+    onSuccess: () =>
+      push({
+        url: `/signUp/verify/complete/${phoneNumber}`,
+      }),
+  });
   const handleVerify = () => {
-    if (verifyValue.length !== 4) return;
-    console.log("verify");
-    push({
-      url: `/signUp/verify/complete/${query.phoneNumber}`,
-    });
+    if (verifyValue.length !== 6) return;
+    mutate(Number(verifyValue));
   };
 
   return (
@@ -39,7 +46,9 @@ export const VerifyPage = () => {
           />
         </Flex>
         <Flex direction="column" align="flex-start" gap="0.3rem">
-          <TextButton>인증번호 다시받기</TextButton>
+          <TextButton onClick={() => reRequest(phoneNumber)}>
+            인증번호 다시받기
+          </TextButton>
           <TextButton>고객센터 연락하기</TextButton>
         </Flex>
       </Flex>

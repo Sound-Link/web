@@ -14,10 +14,12 @@ const SignUp = () => {
     phoneNumber: "",
     isAgreeAge14Over: false,
     isAgreeTerms: false,
+    username: "",
   });
 
-  const handleClear = () =>
+  const handleClear = () => {
     setFormState(prev => ({ ...prev, phoneNumber: "" }));
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, checked } = e.target;
@@ -27,10 +29,25 @@ const SignUp = () => {
     }));
   };
 
+  const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setFormState(prev => ({
+      ...prev,
+      username: value,
+    }));
+  };
+
+  const handleUsernameClear = () => {
+    setFormState(prev => ({ ...prev, username: "" }));
+  };
+
   const handleNextStep = () => {
     if (!Object.values(formState).every(v => v)) return;
     push({
       url: `/signUp/sendSMS/${formState.phoneNumber}`,
+      params: {
+        username: formState.username,
+      },
     });
   };
 
@@ -62,6 +79,16 @@ const SignUp = () => {
             name="phoneNumber"
             onChange={handleChange}
             placeholder="PHONE NUMBER"
+          />
+          <InputWithClear
+            type="tel"
+            value={formState.username}
+            onClear={handleUsernameClear}
+            fontSize="2rem"
+            fontWeight={500}
+            name="username"
+            onChange={handleUsernameChange}
+            placeholder="NAME"
           />
           <Flex direction="column">
             <CheckBox
