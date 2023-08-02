@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Center, Stack, Text } from "@chakra-ui/react";
+import { Button, Center, Flex, Progress, Stack, Text } from "@chakra-ui/react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useRouter } from "../../../../hooks/useRouter";
@@ -16,31 +16,20 @@ const EnrollStep3: React.FC = () => {
       width="100%"
       marginTop="7rem"
     >
-      <Center
-        width="80%"
-        borderRadius="50%"
-        // padding="0.2rem"
-        // background="gradient.button"
-        // position="relative"
-      >
+      <Flex width="80%" height="7rem" borderRadius="0.5rem" position="relative">
         {/* TODO: ProgressBar 수정 */}
-        <CircularProgressbar
-          value={100}
-          text="100%"
-          strokeWidth={10}
-          backgroundPadding={5}
-          background
-          styles={buildStyles({
-            strokeLinecap: "butt",
-            textSize: "1.5rem",
-            textColor: "#7D7D7F",
-            pathColor: `#7D7D7F`,
-            pathTransitionDuration: 0.5,
-            // trailColor: "transparent",
-            // backgroundColor: "#7D7D7F",
-          })}
+        <Progress
+          width="100%"
+          height="100%"
+          bg="gradient.button"
+          padding="0.2rem"
+          borderRadius="0.5rem"
+          value={0}
+          transform="rotate( 180deg )"
+          transition="all 0.5s"
+          isAnimated
         />
-      </Center>
+      </Flex>
 
       <Text
         color="#7D7D7F"

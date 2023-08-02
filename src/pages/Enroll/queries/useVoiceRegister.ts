@@ -1,12 +1,13 @@
 import { MutationOptions, useMutation } from "@tanstack/react-query";
 import { instance } from "../../../api";
+import { useRouter } from "../../../hooks/useRouter";
 
-const voiceRegister = async (voiceRegisterInput: {
-  user_id: string;
+const voiceRegister = async (params: {
+  username: string;
   voice_file_uri: string;
 }) => {
   const url = "/api/user/voice/register";
-  const params = { voiceRegisterInput };
+  // const params = params;
   const result = await instance.post(url, params);
 
   return result.data;
@@ -17,8 +18,18 @@ export const useVoiceRegister = (
     unknown,
     unknown,
     unknown,
-    { voiceRegisterInput: { user_id: string; voice_file_uri: string } }
+    { username: string; voice_file_uri: string }
   >,
 ) => {
-  return useMutation(voiceRegister, options);
+  const { query } = useRouter();
+  const { username } = query as { [key: string]: string };
+
+  return useMutation(
+    (voice_file_uri: string) =>
+      voiceRegister({
+        username: decodeURIComponent(username),
+        voice_file_uri,
+      }),
+    options,
+  );
 };

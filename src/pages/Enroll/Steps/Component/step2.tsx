@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Center, Flex, Stack, Text } from "@chakra-ui/react";
+import { Center, Flex, Progress, Stack, Text } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import ProgressBar from "@ramonak/react-progress-bar";
 import { bridge } from "../../../../utils/bridge";
 import { useRouter } from "../../../../hooks/useRouter";
 import { useVoiceRegister } from "../../queries/useVoiceRegister";
@@ -60,8 +61,9 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
         // });
         console.log(res);
         // if (MY_PHONE_NUMBER) {
-        //   mutate({ user_id: MY_PHONE_NUMBER, voice_file_uri: res });
+        //   mutate(res);
         // }
+        // nextStep();
       }
     }
     execFunction();
@@ -75,31 +77,26 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
       width="100%"
       marginTop="7rem"
     >
-      <Center
-        width="80%"
-        borderRadius="50%"
-        // padding="0.2rem"
-        // background="gradient.button"
-        // position="relative"
-      >
+      <Flex width="80%" height="7rem" borderRadius="0.5rem" position="relative">
         {/* TODO: ProgressBar 수정 */}
-        <CircularProgressbar
-          value={time > intervalSpeakingTime ? 0 : 50}
-          text={`${(time > intervalSpeakingTime ? 0 : 50).toString()}%`}
-          strokeWidth={10}
-          backgroundPadding={5}
-          background
-          styles={buildStyles({
-            strokeLinecap: "butt",
-            textSize: "1.5rem",
-            textColor: "#7D7D7F",
-            pathColor: `#7D7D7F`,
-            pathTransitionDuration: 0.5,
-            // trailColor: "transparent",
-            // backgroundColor: "#7D7D7F",
-          })}
+        <Progress
+          width="100%"
+          height="100%"
+          bg="gradient.button"
+          padding="0.2rem"
+          borderRadius="0.5rem"
+          value={time > intervalSpeakingTime ? 100 : 50}
+          transform="rotate( 180deg )"
+          // style={{'
+          //   >* {
+          // transitionProperty="width"
+          //   }
+          // '}}
+          // transitionProperty="width"
+          // transition="all 0.5s"
+          // isAnimated
         />
-      </Center>
+      </Flex>
 
       <Text
         color="#7D7D7F"
@@ -143,7 +140,7 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
               <br />
               OO을 담당하게 된
               <br />
-              OO부서 김땡땡입니다.
+              OO부서 OOO입니다.
             </Text>
           </Flex>
         </CustomedFlex>

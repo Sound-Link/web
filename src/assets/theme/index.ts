@@ -3,6 +3,15 @@ import colors from "./colors";
 
 const theme = extendTheme({
   colors,
+  components: {
+    Progress: {
+      baseStyle: {
+        filledTrack: {
+          bg: "bgColor.gray",
+        },
+      },
+    },
+  },
   styles: {
     global: {
       html: {
