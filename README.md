@@ -39,7 +39,7 @@
     3. npm start (web 실행) (이후 Network 주소 확인)
 2. React Native 관련 세팅
     1. android studio
-    2. java 설치 (version 표기)
+    2. java 설치 (jdk8)
     3. sdk (emulator) setting
     4. npm run android
     5. `chrome://inspect/#devices` 주소로 Debugging 가능
