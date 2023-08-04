@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Center, Flex, Progress, Stack, Text } from "@chakra-ui/react";
+import { Flex, Progress, Stack, Text } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import ProgressBar from "@ramonak/react-progress-bar";
 import { bridge } from "../../../../utils/bridge";
 import { useRouter } from "../../../../hooks/useRouter";
 import { useVoiceRegister } from "../../queries/useVoiceRegister";
-import { MY_PHONE_NUMBER } from "../../../../hooks/useAuth";
+import { instance } from "../../../../api";
+// import { MY_PHONE_NUMBER } from "../../../../hooks/useAuth";
 
 const totalSpeakingTime = 20;
 const intervalSpeakingTime = 10;
@@ -20,14 +19,31 @@ const CustomedFlex = styled(Flex)`
   }
 `;
 
+const CustomedProgress = styled(Progress)`
+  * {
+    transition-property: all !important;
+  }
+`;
+
 interface EnrollStep2Props {
   nextStep: () => void;
 }
 
 const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [res, setRes] = useState("");
   const [onRecording, setOnRecording] = useState<boolean>(false);
   const [time, setTime] = useState<number>(totalSpeakingTime);
+
+  // instance
+  //   .post("/api/voice/register", formData)
+  //   .then(response => {
+  //     console.log(response);
+  //   })
+  //   .catch(error => {
+  //     console.error(error);
+  //   });
+  // //
 
   // const { mutate } = useVoiceRegister({
   //   // TODO: loading, error exec
@@ -55,15 +71,14 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
         // await bridge<{ uri: string }>({
         //   type: "RECORD_STOP",
         //   onSuccess: s => {
-        //     // console.log(s.uri);
         //     setRes(s.uri);
+        //     console.log(s.uri);
         //   },
         // });
-        console.log(res);
-        // if (MY_PHONE_NUMBER) {
-        //   mutate(res);
-        // }
-        // nextStep();
+        // console.log(res);
+        // const temp = new File;
+        // mutate({});
+        nextStep();
       }
     }
     execFunction();
@@ -78,8 +93,7 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
       marginTop="7rem"
     >
       <Flex width="80%" height="7rem" borderRadius="0.5rem" position="relative">
-        {/* TODO: ProgressBar 수정 */}
-        <Progress
+        <CustomedProgress
           width="100%"
           height="100%"
           bg="gradient.button"
@@ -87,14 +101,6 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
           borderRadius="0.5rem"
           value={time > intervalSpeakingTime ? 100 : 50}
           transform="rotate( 180deg )"
-          // style={{'
-          //   >* {
-          // transitionProperty="width"
-          //   }
-          // '}}
-          // transitionProperty="width"
-          // transition="all 0.5s"
-          // isAnimated
         />
       </Flex>
 
@@ -109,7 +115,7 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
         <br />
         읽어주시길 바랍니다
       </Text>
-
+      {res !== "" && res}
       {time > intervalSpeakingTime && (
         <CustomedFlex
           className={

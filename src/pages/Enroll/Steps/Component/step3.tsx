@@ -1,6 +1,5 @@
 import React from "react";
-import { Button, Center, Flex, Progress, Stack, Text } from "@chakra-ui/react";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { Flex, Progress, Stack, Text } from "@chakra-ui/react";
 import "react-circular-progressbar/dist/styles.css";
 import { useRouter } from "../../../../hooks/useRouter";
 import { OkButton } from "../../../../components/common/OkButton";
@@ -17,7 +16,6 @@ const EnrollStep3: React.FC = () => {
       marginTop="7rem"
     >
       <Flex width="80%" height="7rem" borderRadius="0.5rem" position="relative">
-        {/* TODO: ProgressBar 수정 */}
         <Progress
           width="100%"
           height="100%"

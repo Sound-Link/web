@@ -20,12 +20,12 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
   setNickName,
   setPhoneNumber,
 }) => {
-  const { mutate } = useFriendRegister({
-    // TODO: loading, error exec
-    onSuccess: () => {
-      setStatus(true);
-    },
-  });
+  // const { mutate } = useFriendRegister({
+  //   // TODO: loading, error exec
+  //   onSuccess: () => {
+  //     setStatus(true);
+  //   },
+  // });
 
   const onChangNickNameInput = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,9 +40,10 @@ const FriendsEnroll: React.FC<FriendsEnrollProps> = ({
     [],
   );
   const onClickSubmit = useCallback(() => {
-    if (MY_PHONE_NUMBER) {
-      mutate({ user_id: MY_PHONE_NUMBER, phone_number: phoneNumber });
-    }
+    // if (MY_PHONE_NUMBER) {
+    //   mutate({ user_id: MY_PHONE_NUMBER, phone_number: phoneNumber });
+    // }
+    setStatus(true);
   }, []);
 
   return (
