@@ -23,8 +23,12 @@ export const VerifyPage = () => {
       }),
   });
   const handleVerify = () => {
+    // TODO: Change to original logic
     if (verifyValue.length !== 6) return;
-    mutate(Number(verifyValue));
+    // mutate(Number(verifyValue));
+    push({
+      url: `/signUp/verify/complete/${phoneNumber}`,
+    });
   };
 
   return (

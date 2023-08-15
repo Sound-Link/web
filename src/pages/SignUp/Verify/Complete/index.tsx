@@ -30,7 +30,7 @@ export const CompletePage = () => {
           fontWeight={500}
           whiteSpace="pre-wrap"
         >
-          {"가입이\n정상적으로\n처리되었습니다"}
+          {"가입/로그인이\n정상적으로\n처리되었습니다"}
         </Text>
         <OkButton onClick={handleComplete} />
       </Flex>
