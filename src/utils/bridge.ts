@@ -8,7 +8,7 @@ interface PostMessage {
 const postMessage = ({ type, data }: PostMessage) =>
   new Promise<void>(() => {
     setTimeout(() => {
-      window.ReactNativeWebView.postMessage(
+      window.ReactNativeWebView?.postMessage(
         JSON.stringify({
           type,
           data,

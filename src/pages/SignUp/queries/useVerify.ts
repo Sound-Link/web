@@ -11,7 +11,10 @@ interface Verify {
 }
 
 const verify = async (params: Verify) => {
-  const result = await instance.post("/api/user/verify", params);
+  const result = await instance.post(
+    `/api/user/verify?code=${params.verification_code}`,
+    params.signin_input,
+  );
 
   return result.data;
 };

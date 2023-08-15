@@ -6,7 +6,7 @@ import { useRoomCreate } from "../queries/useRoomCreate";
 import { useRouter } from "../../../hooks/useRouter";
 
 const MeetingCreate = () => {
-  const { push } = useRouter();
+  // const { push } = useRouter();
   const [onNaming, setOnNaming] = useState<boolean>(false);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [selectedName, setSelectedName] = useState<string>("");

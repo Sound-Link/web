@@ -4,20 +4,17 @@ import { instance } from "../../../api";
 
 const voiceRegister = async (file: File) => {
   // TODO: Change to User ID
-  // const newFormData = new FormData();
-  // newFormData.append("user_id", "1234");
-  const url = `/api/user/voice/register?user_id=1234`;
+  const formData = new FormData();
+  formData.append("file", file);
+  const url = `/api/voice/register?user_id=2`;
   // const params = params;
-  const result = await instance.post(url, file);
+  const result = await instance.post(url, formData);
 
   return result.data;
 };
 
 export const useVoiceRegister = (
-  options?: MutationOptions<unknown, unknown, unknown, File>,
+  options?: MutationOptions<unknown, unknown, unknown, { file: File }>,
 ) => {
-  // const { query } = useRouter();
-  // const { username } = query as { [key: string]: string };
-
-  return useMutation((file: File) => voiceRegister(file), options);
+  return useMutation(voiceRegister, options);
 };

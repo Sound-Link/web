@@ -23,7 +23,6 @@ const RouteGroup = () => {
         <Route element={<PrivateLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/test" element={<Test />} />
-          {/* <Route path="/" element={<Enroll />} /> */}
           <Route path="/enroll" element={<Enroll />} />
           <Route path="/friends" element={<Friends />} />
           <Route path="/meeting" element={<Meeting />} />

@@ -31,26 +31,16 @@ interface EnrollStep2Props {
 
 const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [res, setRes] = useState("");
+  const [res, setRes] = useState<File>();
   const [onRecording, setOnRecording] = useState<boolean>(false);
   const [time, setTime] = useState<number>(totalSpeakingTime);
 
-  // instance
-  //   .post("/api/voice/register", formData)
-  //   .then(response => {
-  //     console.log(response);
-  //   })
-  //   .catch(error => {
-  //     console.error(error);
-  //   });
-  // //
-
-  // const { mutate } = useVoiceRegister({
-  //   // TODO: loading, error exec
-  //   onSuccess: () => {
-  //     nextStep();
-  //   },
-  // });
+  const { mutate } = useVoiceRegister({
+    // TODO: loading, error exec
+    onSuccess: () => {
+      nextStep();
+    },
+  });
 
   useEffect(() => {
     async function execFunction() {
@@ -68,16 +58,15 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
         setTimeout(() => setTime(time - 1), 1000);
       } else {
         setOnRecording(false);
-        // await bridge<{ uri: string }>({
+        // await bridge<{ uri: string; data: File }>({
         //   type: "RECORD_STOP",
         //   onSuccess: s => {
-        //     setRes(s.uri);
-        //     console.log(s.uri);
+        //     setRes(s.data);
+        //     // console.log(s.uri);
+        //     // console.log(s.data);
         //   },
         // });
-        // console.log(res);
-        // const temp = new File;
-        // mutate({});
+        // if (res) await mutate(res);
         nextStep();
       }
     }
@@ -115,7 +104,6 @@ const EnrollStep2: React.FC<EnrollStep2Props> = ({ nextStep }) => {
         <br />
         읽어주시길 바랍니다
       </Text>
-      {res !== "" && res}
       {time > intervalSpeakingTime && (
         <CustomedFlex
           className={

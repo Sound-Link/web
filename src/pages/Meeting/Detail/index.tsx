@@ -1,8 +1,16 @@
+import { Center } from "@chakra-ui/react";
+
 const MeetingDetail = () => {
   return (
-    <div style={{ position: "relative", top: "400px" }}>
+    <Center
+      position="relative"
+      marginTop="5rem"
+      color="white"
+      fontSize="2rem"
+      fontWeight={700}
+    >
       Meeting History Detail
-    </div>
+    </Center>
   );
 };
 

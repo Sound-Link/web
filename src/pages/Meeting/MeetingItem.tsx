@@ -28,7 +28,7 @@ export const MeetingItem = ({
     >
       <Flex
         as="a"
-        onClick={() => push({ url: `/meeting/${id}` })}
+        onClick={() => push({ url: `/meeting/detail/${id}` })}
         bgColor="bgColor.gray"
         width="100%"
         height="100%"

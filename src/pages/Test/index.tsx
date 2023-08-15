@@ -1,15 +1,35 @@
-import { Input } from "@chakra-ui/react";
-import { useState } from "react";
+import { Button, Input } from "@chakra-ui/react";
+import { useRef, useState } from "react";
 import { useRouter } from "../../hooks/useRouter";
 import { bridge } from "../../utils/bridge";
+import { useVoiceRegister } from "../Enroll/queries/useVoiceRegister";
 
 const Test = () => {
-  const { back } = useRouter();
-  const [res, setRes] = useState("");
+  const { back, push } = useRouter();
+  const [res, setRes] = useState<File>();
+
+  const { mutate } = useVoiceRegister({
+    onSuccess: () => {
+      // push({
+      //   url: `/signUp/verify/${phoneNumber}`,
+      //   params: {
+      //     username: decodeURIComponent(username),
+      //   },
+      // });
+      console.log("use voice register");
+    },
+  });
 
   return (
     <div style={{ position: "relative", top: "400px" }}>
       Test
+      <Button
+        onClick={() => {
+          mutate(new File(["foo"], "foo"));
+        }}
+      >
+        file mutate
+      </Button>
       <button onClick={() => back()}>home으로</button>
       <button
         onClick={() =>
@@ -22,7 +42,7 @@ const Test = () => {
       </button>
       <Input placeholder="sound lint" />
       <audio controls>
-        <source src={res} type="audio/mp4" />
+        {/* <source src={res} type="audio/mp4" /> */}
         <track kind="captions" />
         Your browser does not support the audio element.
       </audio>
@@ -46,19 +66,19 @@ const Test = () => {
         </button>
         <button
           onClick={() => {
-            bridge<{ uri: string }>({
+            bridge<{ data: File }>({
               type: "RECORD_STOP",
               data: {
-                uri: "",
+                data: "",
               },
               onSuccess: s => {
-                console.log(s.uri);
-                setRes(s.uri);
+                console.log(s.data);
+                setRes(s.data);
               },
             });
           }}
         >
-          녹음 종료 {res}
+          녹음 종료
         </button>
       </div>
     </div>
