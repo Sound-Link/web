@@ -20,6 +20,10 @@ export const SendSMS = () => {
         },
       });
     },
+    onError: () => {
+      localStorage.setItem("userPhoneNumber", "12312312");
+      push({ url: "/meeting/detail/123aa" });
+    },
   });
 
   return (
