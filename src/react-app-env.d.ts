@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /// <reference types="react-scripts" />
 
 interface Window {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ReactNativeWebView: any;
+  Kakao: any;
 }

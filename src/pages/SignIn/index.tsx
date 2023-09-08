@@ -1,4 +1,5 @@
 import { Flex, Image, Text, FlexProps } from "@chakra-ui/react";
+import { useEffect } from "react";
 import Images from "../../assets/images/Icon";
 import { Button } from "./Button";
 import { useRouter } from "../../hooks/useRouter";
@@ -12,6 +13,12 @@ const FlexColumnJustifyAlignCenter = (props: FlexProps) => (
 const SignIn = () => {
   const { push } = useRouter();
   useAuth();
+
+  const handleKakaoLogin = () => {
+    window.Kakao.Auth.authorize({
+      redirectUri: "http://localhost:3000/signIn",
+    });
+  };
 
   return (
     <TopImageLayout>
@@ -28,17 +35,9 @@ const SignIn = () => {
           </Text>
         </FlexColumnJustifyAlignCenter>
         <FlexColumnJustifyAlignCenter gap="2rem">
-          <Button
-            onClick={() =>
-              push({
-                url: "/signUp",
-              })
-            }
-            role="link"
-            aria-label="시작하기"
-          >
+          <Button onClick={handleKakaoLogin} role="link" aria-label="시작하기">
             <Text fontSize="1.5rem" fontFamily="JamsilMedium">
-              시작하기
+              카카오로그인
             </Text>
           </Button>
         </FlexColumnJustifyAlignCenter>

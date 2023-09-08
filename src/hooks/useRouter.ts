@@ -4,7 +4,9 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
+import axios from "axios";
 import { isApp } from "../utils/isApp";
+import { vaildateToken } from "../api/auth";
 
 const objectToQueryString = (params: object) => {
   const queryStrings: string[] = [];
@@ -45,6 +47,7 @@ export const useRouter = () => {
     if (isApp()) {
       sendRouterEvent("back");
     }
+    vaildateToken();
     nav(-1);
   };
 
@@ -62,6 +65,7 @@ export const useRouter = () => {
       sendRouterEvent("push");
     }
     nav(`${url}${paramsString}`, options);
+    vaildateToken();
   };
 
   const getQuery = () => {

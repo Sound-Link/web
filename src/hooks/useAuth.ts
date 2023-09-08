@@ -3,7 +3,8 @@ import { useLocation } from "react-router-dom";
 import { useRouter } from "./useRouter";
 
 const NOT_AUTH_PATH = ["signUp", "signIn"];
-export const USER_PHONE_NUMBER = "userPhoneNumber";
+// 테스트를 위해 access_token으로 변경
+export const USER_PHONE_NUMBER = "access_token";
 export const MY_PHONE_NUMBER = localStorage.getItem(USER_PHONE_NUMBER);
 
 export const useAuth = () => {
