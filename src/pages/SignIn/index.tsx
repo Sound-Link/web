@@ -1,8 +1,6 @@
 import { Flex, Image, Text, FlexProps } from "@chakra-ui/react";
-import { useEffect } from "react";
 import Images from "../../assets/images/Icon";
 import { Button } from "./Button";
-import { useRouter } from "../../hooks/useRouter";
 import { TopImageLayout } from "../Layout/TopImageLayout";
 import { useAuth } from "../../hooks/useAuth";
 
@@ -11,12 +9,12 @@ const FlexColumnJustifyAlignCenter = (props: FlexProps) => (
 );
 
 const SignIn = () => {
-  const { push } = useRouter();
   useAuth();
 
   const handleKakaoLogin = () => {
     window.Kakao.Auth.authorize({
-      redirectUri: "http://localhost:3000/signIn",
+      // redirectUri: "http://localhost:3000/signIn",
+      redirectUri: "https://web-sound-link-web.vercel.app/signIn",
     });
   };
 

@@ -15,7 +15,8 @@ export const getToken = () => {
       {
         grant_type: "authorization_code",
         client_id: CLIENT_ID,
-        redirect_uri: "http://localhost:3000/signIn",
+        // redirect_uri: "http://localhost:3000/signIn",
+        redirectUri: "https://web-sound-link-web.vercel.app/signIn",
         code: CODE,
         client_secret: CLIENT_SECRET,
       },
