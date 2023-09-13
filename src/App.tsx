@@ -14,7 +14,7 @@ const App = () => {
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
     if (!window.Kakao.isInitialized()) {
-      window.Kakao.init("8d14be00636c3c6f065f37e3ea715cb4");
+      window.Kakao.init("e7dcbb564a49076c096c34b67413b515");
     }
     if (code && window.Kakao.isInitialized() && !accessToken) {
       getToken();
