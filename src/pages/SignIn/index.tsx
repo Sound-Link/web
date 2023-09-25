@@ -14,7 +14,8 @@ const SignIn = () => {
   const handleKakaoLogin = () => {
     window.Kakao.Auth.authorize({
       // redirectUri: "http://localhost:3000/signIn",
-      redirectUri: "https://web-sound-link-web.vercel.app/signIn",
+      // redirectUri: "https://web-sound-link-web.vercel.app/signIn",
+      redirectUri: "http://172.30.1.40:3000/signIn",
     });
   };
 

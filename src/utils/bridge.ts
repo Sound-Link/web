@@ -6,7 +6,7 @@ interface PostMessage {
 }
 
 const postMessage = ({ type, data }: PostMessage) =>
-  new Promise<void>(() => {
+  new Promise<void>(resolve => {
     setTimeout(() => {
       window.ReactNativeWebView?.postMessage(
         JSON.stringify({
@@ -14,6 +14,7 @@ const postMessage = ({ type, data }: PostMessage) =>
           data,
         }),
       );
+      resolve();
     }, 0);
   });
 
@@ -27,6 +28,10 @@ export const bridge = async <T>({ data, onSuccess, type }: Bridge<T>) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleMessage = (e: any) => {
     onSuccess?.(JSON.parse(e.data));
+    if (isIos()) {
+      window.removeEventListener("message", handleMessage);
+    }
+    document.removeEventListener("message", handleMessage);
   };
 
   if (isIos()) {
@@ -34,10 +39,5 @@ export const bridge = async <T>({ data, onSuccess, type }: Bridge<T>) => {
   }
   document.addEventListener("message", handleMessage);
 
-  await postMessage({ type, data });
-
-  if (isIos()) {
-    window.removeEventListener("message", handleMessage);
-  }
-  document.removeEventListener("message", handleMessage);
+  postMessage({ type, data });
 };

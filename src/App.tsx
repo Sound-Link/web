@@ -10,19 +10,19 @@ import { getToken, vaildateToken } from "./api/auth";
 const App = () => {
   const accessToken = localStorage.getItem("access_token");
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-    if (!window.Kakao.isInitialized()) {
-      window.Kakao.init("e7dcbb564a49076c096c34b67413b515");
-    }
-    if (code && window.Kakao.isInitialized() && !accessToken) {
-      getToken();
-    }
-    if (accessToken) {
-      vaildateToken();
-    }
-  }, []);
+  // useEffect(() => {
+  //   const params = new URLSearchParams(window.location.search);
+  //   const code = params.get("code");
+  //   if (!window.Kakao.isInitialized()) {
+  //     window.Kakao.init("e7dcbb564a49076c096c34b67413b515");
+  //   }
+  //   if (code && window.Kakao.isInitialized() && !accessToken) {
+  //     getToken();
+  //   }
+  //   if (accessToken) {
+  //     vaildateToken();
+  //   }
+  // }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
