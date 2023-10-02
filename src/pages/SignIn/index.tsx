@@ -31,7 +31,7 @@ const SignIn = () => {
           <Button role="link" aria-label="시작하기">
             <Text fontSize="1.5rem" fontFamily="JamsilMedium">
               <a
-                href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECTURI}`}
+                href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=https://web-sound-link-web.vercel.app/signIn`}
               >
                 카카오로그인
               </a>
