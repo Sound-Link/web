@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
+import { useAtomValue } from "jotai";
 import { instance } from "../../../api";
+import { emailAtom } from "../../../store";
 
 const EMAIL = localStorage.getItem("email");
 
@@ -9,14 +11,14 @@ interface RoomListRes {
   name: string;
 }
 
-const roomList = async () => {
-  const url = `/rooms/user/${EMAIL}`;
+const roomList = async (email: string) => {
+  const url = `/rooms/user/${email}`;
   const result = await instance.get<RoomListRes[]>(url);
   return result;
 };
 
 export const useRoomList = () => {
-  return useQuery(["roomList", EMAIL], roomList, {
-    enabled: !!EMAIL,
-  });
+  const email = useAtomValue(emailAtom);
+
+  return useQuery(["roomList", EMAIL], () => roomList(EMAIL || email));
 };

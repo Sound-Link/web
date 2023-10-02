@@ -1,6 +1,8 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useSetAtom } from "jotai";
 import { instance } from ".";
+import { emailAtom } from "../store";
 
 export const createUser = async (email: string) => {
   const res = await instance.post("/user_create", {
@@ -27,10 +29,12 @@ export const getUser = async () => {
 
 export const useGetUser = () => {
   const { mutate } = userCreateUser();
+  const setEmail = useSetAtom(emailAtom);
 
   return useQuery(["getUserData"], getUser, {
     onSuccess: data => {
       localStorage.setItem("email", data.kakao_account.email);
+      setEmail(data.kakao_account.email);
       mutate(data.kakao_account.email);
     },
     enabled:

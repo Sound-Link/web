@@ -4,21 +4,14 @@ import { Button } from "./Button";
 import { TopImageLayout } from "../Layout/TopImageLayout";
 import { useAuth } from "../../hooks/useAuth";
 
+const CLIENT_ID = "8d14be00636c3c6f065f37e3ea715cb4";
+
 const FlexColumnJustifyAlignCenter = (props: FlexProps) => (
   <Flex {...props} direction="column" align="center" justify="center" />
 );
 
 const SignIn = () => {
   useAuth();
-
-  const handleKakaoLogin = () => {
-    window.Kakao.Auth.authorize({
-      // redirectUri: "http://localhost:3000/signIn",
-      // redirectUri: "https://web-sound-link-web.vercel.app/signIn",
-      redirectUri: process.env.REACT_APP_REDIRECTURI,
-      scope: "account_email",
-    });
-  };
 
   return (
     <TopImageLayout>
@@ -35,9 +28,13 @@ const SignIn = () => {
           </Text>
         </FlexColumnJustifyAlignCenter>
         <FlexColumnJustifyAlignCenter gap="2rem">
-          <Button onClick={handleKakaoLogin} role="link" aria-label="시작하기">
+          <Button role="link" aria-label="시작하기">
             <Text fontSize="1.5rem" fontFamily="JamsilMedium">
-              카카오로그인
+              <a
+                href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECTURI}`}
+              >
+                카카오로그인
+              </a>
             </Text>
           </Button>
         </FlexColumnJustifyAlignCenter>
