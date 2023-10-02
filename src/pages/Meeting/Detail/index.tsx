@@ -45,6 +45,7 @@ const MeetingDetail = () => {
         });
       },
     });
+    setIsRecording(false);
   };
 
   const handleGetCurrentData = async () => {
