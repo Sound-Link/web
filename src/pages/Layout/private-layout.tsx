@@ -30,6 +30,8 @@ const PrivateLayout = () => {
             backgroundSize="cover"
             justify="center"
             align="center"
+            color="fontColor.gray"
+            fontSize="1.3rem"
             onClick={() => setIsSettingOpen(true)}
           >
             ⚙
@@ -48,7 +50,14 @@ const PrivateLayout = () => {
             width="3rem"
             height="3rem"
             borderRadius="50%"
+            borderStyle="solid"
+            borderWidth="0.1rem"
+            borderColor="gradient.button"
             backgroundSize="cover"
+            justify="center"
+            align="center"
+            color="fontColor.gray"
+            fontSize="1.3rem"
             backgroundImage={Images.createIcon}
             onClick={() =>
               push({
