@@ -1,42 +1,29 @@
-import { Flex } from "@chakra-ui/react";
-import { MeetingItem } from "./MeetingItem";
-
-const MOCKING_DATA = [
-  {
-    date: "2023.07.04",
-    title: "제목1",
-    lastContents: "내용1",
-    id: 1,
-  },
-  {
-    date: "2023.07.04",
-    title: "제목2",
-    lastContents: "내용2",
-    id: 2,
-  },
-  {
-    date: "2023.07.04",
-    title: "제목3",
-    lastContents: "내용3",
-    id: 3,
-  },
-] as const;
+import { Suspense } from "react";
+import { Flex, Skeleton } from "@chakra-ui/react";
+import { MeetingList } from "./MeetingList";
 
 const Meeting = () => {
+  // TODO: 이거 주석
+  // localStorage.setItem("email", "dos07008@naver.com");
+
   return (
-    <Flex
-      height="100%"
-      width="100%"
-      paddingTop="8.2rem"
-      direction="column"
-      gap="3.6rem"
-      px="2.2rem"
-      as="ol"
+    <Suspense
+      fallback={
+        <Flex
+          direction="column"
+          width="100%"
+          paddingTop="8.2rem"
+          gap="3.6rem"
+          px="2.2rem"
+        >
+          <Skeleton borderRadius="1rem" width="100%" height="4.9rem" />
+          <Skeleton borderRadius="1rem" width="100%" height="4.9rem" />
+          <Skeleton borderRadius="1rem" width="100%" height="4.9rem" />
+        </Flex>
+      }
     >
-      {MOCKING_DATA.map(item => (
-        <MeetingItem key={item.id} {...item} />
-      ))}
-    </Flex>
+      <MeetingList />
+    </Suspense>
   );
 };
 

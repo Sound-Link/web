@@ -17,19 +17,20 @@ export const useAuth = () => {
     localStorage.setItem(USER_PHONE_NUMBER, _phoneNumber);
   };
 
-  // useEffect(() => {
-  //   if (!isLogin) {
-  //     if (!NOT_AUTH_PATH.includes(pathname.split("/")[1])) {
-  //       push({
-  //         url: "/signIn",
-  //       });
-  //     }
-  //   } else if (NOT_AUTH_PATH.includes(pathname.split("/")[1])) {
-  //     push({
-  //       url: "/",
-  //     });
-  //   }
-  // }, []);
+  // TODO: 이거 주석
+  useEffect(() => {
+    if (!isLogin) {
+      if (!NOT_AUTH_PATH.includes(pathname.split("/")[1])) {
+        push({
+          url: "/signIn",
+        });
+      }
+    } else if (NOT_AUTH_PATH.includes(pathname.split("/")[1])) {
+      push({
+        url: "/",
+      });
+    }
+  }, []);
 
   return {
     isLogin,

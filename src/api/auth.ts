@@ -17,9 +17,10 @@ export const getToken = () => {
         client_id: CLIENT_ID,
         // redirect_uri: "http://localhost:3000/signIn",
         // redirectUri: "https://web-sound-link-web.vercel.app/signIn",
-        redirectUri: "http://172.30.1.40:3000",
+        redirectUri: process.env.REACT_APP_REDIRECTURI,
         code: CODE,
         client_secret: CLIENT_SECRET,
+        scope: "account_email",
       },
       {
         headers: {
@@ -29,6 +30,7 @@ export const getToken = () => {
     )
     .then(res => {
       const { access_token, refresh_token } = res.data;
+      console.log(JSON.stringify(res.data));
       localStorage.setItem("access_token", access_token);
       localStorage.setItem("refresh_token", refresh_token);
     })

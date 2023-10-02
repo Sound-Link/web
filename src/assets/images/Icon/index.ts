@@ -28,6 +28,8 @@ import bgImg4 from "./bg-img-4.svg";
 import originalBgImg1 from "./original-bg-img-1.svg";
 import originalBgImg2 from "./original-bg-img-2.svg";
 import originalBgImg3 from "./original-bg-img-3.svg";
+import OnButton from "./onButton.svg";
+import OffButton from "./offButton.svg";
 import originalBgImg4 from "./original-bg-img-4.svg";
 
 const Images = {
@@ -62,6 +64,8 @@ const Images = {
   originalBgImg2,
   originalBgImg3,
   originalBgImg4,
+  OnButton,
+  OffButton,
 };
 
 export default Images;

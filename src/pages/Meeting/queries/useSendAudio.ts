@@ -3,7 +3,13 @@ import toWav from "audiobuffer-to-wav";
 import { Dispatch, SetStateAction } from "react";
 import { instance } from "../../../api";
 
-const sendAudio = async (_data: string) => {
+const sendAudio = async ({
+  _data,
+  roomId,
+}: {
+  _data: string;
+  roomId: string;
+}) => {
   const audioCtx = new window.AudioContext();
 
   // base64 데이터를 ArrayBuffer로 변환
@@ -20,25 +26,40 @@ const sendAudio = async (_data: string) => {
   const formData = new FormData();
   formData.append("file", blob, "file.wav");
 
-  const result = await instance.post("/upload", formData, {
+  const result = await instance.post(`/upload/${roomId}`, formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
   });
 
-  return result;
+  return result.data;
 };
 
 export const useSendAudio = (
-  setRecordData: Dispatch<SetStateAction<string[]>>,
+  setRecordData: Dispatch<
+    SetStateAction<
+      {
+        text: string;
+        createAt: string;
+        id: string;
+      }[]
+    >
+  >,
 ) => {
-  return useMutation(sendAudio, {
-    onSuccess: data => {
-      alert("성공");
-      setRecordData(prev => [...prev, data.data.text]);
+  return useMutation(
+    ({ data, roomId }: { data: string; roomId: string }) =>
+      sendAudio({ _data: data, roomId }),
+    {
+      onSuccess: data => {
+        setRecordData(prev => [
+          ...prev,
+          {
+            createAt: data.chat.created_at,
+            text: data.chat.text,
+            id: data.chat.id,
+          },
+        ]);
+      },
     },
-    onError: e => {
-      alert(JSON.stringify(e));
-    },
-  });
+  );
 };

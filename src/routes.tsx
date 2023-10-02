@@ -15,6 +15,7 @@ import EnrollLayout from "./pages/Layout/enroll-layout";
 import { SendSMS } from "./pages/SignUp/SendSMS";
 import { VerifyPage } from "./pages/SignUp/Verify";
 import { CompletePage } from "./pages/SignUp/Verify/Complete";
+import { DetailLayout } from "./pages/Layout/detail-layout";
 
 const RouteGroup = () => {
   return (
@@ -28,6 +29,8 @@ const RouteGroup = () => {
           <Route path="/meeting" element={<Meeting />} />
           <Route path="/meeting/:id" element={<MeetingChat />} />
           <Route path="/meeting/create" element={<MeetingCreate />} />
+        </Route>
+        <Route element={<DetailLayout />}>
           <Route path="/meeting/detail/:roomId" element={<MeetingDetail />} />
         </Route>
         <Route element={<EnrollLayout />}>

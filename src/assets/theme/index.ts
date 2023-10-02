@@ -16,6 +16,7 @@ const theme = extendTheme({
     global: {
       html: {
         "font-size": "62.5%",
+        background: "bgColor.gray",
       },
       "*": {
         "box-sizing": "border-box",

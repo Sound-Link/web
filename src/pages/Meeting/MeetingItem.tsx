@@ -1,19 +1,14 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
+import dayjs from "dayjs";
 import { useRouter } from "../../hooks/useRouter";
 
 interface MeetingItemProps {
-  title: string;
-  lastContents: string;
-  date: string;
+  name: string;
+  created_at: string;
   id: number;
 }
 
-export const MeetingItem = ({
-  date,
-  lastContents,
-  title,
-  id,
-}: MeetingItemProps) => {
+export const MeetingItem = ({ created_at, name, id }: MeetingItemProps) => {
   const { push } = useRouter();
 
   return (
@@ -36,18 +31,11 @@ export const MeetingItem = ({
         py="1.5rem"
         px="1.1rem"
       >
-        <Text
-          color="fontColor.gray2"
-          position="absolute"
-          fontWeight={500}
-          top="-2.5rem"
-          fontSize="1.3rem"
-        >
-          {title}
-        </Text>
         <Flex justify="space-between" width="100%">
-          <Text color="color.gray6">{lastContents}</Text>
-          <Text color="color.gray6">{date}</Text>
+          <Text color="color.gray6">{name}</Text>
+          <Text color="color.gray6">
+            {dayjs(created_at).format("YYYY.MM.DD")}
+          </Text>
         </Flex>
       </Flex>
     </Box>

@@ -18,7 +18,7 @@ export const useRoomCreate = () => {
   return useMutation(roomCreate, {
     onSuccess: data => {
       push({
-        url: `/meeting/${data.id}`,
+        url: `/meeting/detail/${data.id}`,
       });
     },
   });

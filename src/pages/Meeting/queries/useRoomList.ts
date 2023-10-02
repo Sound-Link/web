@@ -1,12 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
 import { instance } from "../../../api";
 
-const roomList = async (user_id: string) => {
-  const url = `/api/room/list/?user_id=${user_id}`;
-  const result = await instance.get(url);
+const EMAIL = localStorage.getItem("email");
+
+interface RoomListRes {
+  created_at: string;
+  id: number;
+  name: string;
+}
+
+const roomList = async () => {
+  const url = `/rooms/user/${EMAIL}`;
+  const result = await instance.get<RoomListRes[]>(url);
   return result;
 };
 
-export const useRoomList = (user_id: string) => {
-  return useQuery(["roomList", user_id], () => roomList(user_id));
+export const useRoomList = () => {
+  return useQuery(["roomList", EMAIL], roomList, {
+    enabled: !!EMAIL,
+  });
 };
