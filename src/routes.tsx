@@ -21,7 +21,7 @@ const RouteGroup = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<PrivateLayout />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Meeting />} />
           <Route path="/test" element={<Test />} />
           <Route path="/enroll" element={<Enroll />} />
           <Route path="/friends" element={<Friends />} />
