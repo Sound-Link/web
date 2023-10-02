@@ -1,27 +1,24 @@
 import { Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import MeetingInvite from "./Component/invite";
-import MeetingNaming from "./Component/naming";
 import { useRoomCreate } from "../queries/useRoomCreate";
 import { useRouter } from "../../../hooks/useRouter";
+import { InputWithClear } from "../../../components/common/InputWithClear";
+import { NoButton } from "../../../components/common/NoButton";
+import { OkButton } from "../../../components/common/OkButton";
 
 const MeetingCreate = () => {
-  // const { push } = useRouter();
-  const [onNaming, setOnNaming] = useState<boolean>(false);
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
-  const [selectedName, setSelectedName] = useState<string>("");
+  const { back } = useRouter();
+  const [name, setName] = useState<string>("");
 
-  // const { mutate } = useRoomCreate({
-  //   // TODO: loading, error exec
-  //   onSuccess: data => {
-  //     push({
-  //       url: `/meeting/${data}`,
-  //     });
-  //   },
-  // });
+  const { mutate } = useRoomCreate();
 
   const createRoom = async () => {
-    // mutate({ name: selectedName, user_ids: selectedIds });
+    if (name === "") {
+      alert("이름을 입력해주세요");
+
+      return;
+    }
+    mutate(name);
   };
 
   return (
@@ -30,25 +27,26 @@ const MeetingCreate = () => {
         textAlign="center"
         fontFamily="JamsilExtraInfo"
         fontWeight="extrabold"
-        fontSize="1.5rem"
+        fontSize="2.5rem"
         color="white"
       >
-        회의를 시작하겠습니다
+        회의 생성
       </Text>
-      {!onNaming && (
-        <MeetingInvite
-          selectedIds={selectedIds}
-          setSelectedIds={setSelectedIds}
-          setOnNaming={setOnNaming}
+      <Stack width="100%">
+        <InputWithClear
+          value={name}
+          onChange={e => setName(e.target.value)}
+          css={{ width: "100%" }}
+          onClear={() => {
+            setName("");
+          }}
+          placeholder="회의 이름을 입력해주세요"
         />
-      )}
-      {onNaming && (
-        <MeetingNaming
-          selectedName={selectedName}
-          setSelectedName={setSelectedName}
-          createRoom={createRoom}
-        />
-      )}
+      </Stack>
+      <Stack direction="row" justify="end">
+        <NoButton onClick={() => back()} />
+        <OkButton onClick={createRoom} />
+      </Stack>
     </Stack>
   );
 };

@@ -16,6 +16,7 @@ const SignIn = () => {
       // redirectUri: "http://localhost:3000/signIn",
       // redirectUri: "https://web-sound-link-web.vercel.app/signIn",
       redirectUri: process.env.REACT_APP_REDIRECTURI,
+      scope: "account_email",
     });
   };
 

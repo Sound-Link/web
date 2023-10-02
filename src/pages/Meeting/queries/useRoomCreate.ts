@@ -1,24 +1,25 @@
-import { MutationOptions, useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { instance } from "../../../api";
+import { useRouter } from "../../../hooks/useRouter";
 
-const roomCreate = async (roomCreateInput: {
-  user_ids: string[];
-  name: string;
-}) => {
-  const url = "/api/user/signup";
-  const params = { roomCreateInput };
-  const result = await instance.post(url, params);
+const roomCreate = async (name: string) => {
+  const url = "/rooms/create";
+  const result = await instance.post(url, {
+    email: localStorage.getItem("email"),
+    name,
+  });
 
   return result.data;
 };
 
-export const useRoomCreate = (
-  options?: MutationOptions<
-    string,
-    unknown,
-    unknown,
-    { roomCreateInput: { user_ids: string[]; name: string } }
-  >,
-) => {
-  return useMutation(roomCreate, options);
+export const useRoomCreate = () => {
+  const { push } = useRouter();
+
+  return useMutation(roomCreate, {
+    onSuccess: data => {
+      push({
+        url: `/meeting/${data.id}`,
+      });
+    },
+  });
 };

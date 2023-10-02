@@ -12,7 +12,12 @@ const PrivateLayout = () => {
   const [isSettingOpen, setIsSettingOpen] = useState(false);
 
   return (
-    <Stack width="100%" height="100%" bgColor="bgColor.gray">
+    <Stack
+      width="100%"
+      height="100%"
+      bgColor="bgColor.gray"
+      paddingTop="env(safe-area-inset-top)"
+    >
       <Center padding="1.5rem">
         <Stack gap="1rem" direction="row" position="absolute" left="3rem">
           <Flex

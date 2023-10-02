@@ -12,7 +12,7 @@ export const InputWithClear = forwardRef(
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     return (
-      <Box width="fit-content" position="relative">
+      <Box width="100%" position="relative">
         <Input
           px="1.35rem"
           py="0.9rem"
